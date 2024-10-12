@@ -15,7 +15,7 @@ function Helper() {
   return (
     <div>
       {" "}
-      <Button className="help-dropdown" onClick={handleShow}>
+      <Button className="help-dropdown " onClick={handleShow}>
         <i className="sicon-life-ring mx-1"></i>
         المساعدة
         <i className="mx-2" style={{ color: "blue" }}>
@@ -29,9 +29,8 @@ function Helper() {
       <Modal
         show={showModal}
         onHide={handleClose}
-        dialogClassName={`left-aligned-modal ${
-          isLarge ? "modal-large" : "modal-small"
-        }`}
+        dialogClassName={`left-aligned-modal ${isLarge ? "modal-large" : "modal-small"
+          }`}
       >
         <Modal.Header
           style={{

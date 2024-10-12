@@ -26,7 +26,7 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div>
+    <div className=" h-full">
       {/* Toggle button */}
       <button
         className="lg:hidden"

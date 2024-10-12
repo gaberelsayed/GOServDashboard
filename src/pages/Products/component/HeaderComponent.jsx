@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { FaExpandArrowsAlt } from "react-icons/fa"; 
 import { FaHome } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,7 +19,7 @@ const HeaderComponent = () => {
       <div className="header-container">
         <div className="nav-items">
           <FaHome className="nav-icon" /> 
-          <span className="nav-item-home">الرئيسية</span>
+          <Link to="/" className="nav-item-home">الرئيسية</Link>
           <span className="nav-item">/ المنتجات</span>
         </div>
         <Button className="help-dropdown" onClick={handleShow}>

@@ -15,7 +15,6 @@ import { IoBagRemoveOutline } from "react-icons/io5";
 import { BsMagic } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import AllClientsModal from "./Component/Modal";
-import BasicExample from "./Component/SubClient";
 import { CiWarning } from "react-icons/ci";
 
 function Clients({ darkMode, setDarkMode }) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import img from './../../assets/112e28edfaa501b1942f68247921fcec.png'
 import "./Clients.css";
 
@@ -14,8 +14,18 @@ import { CiFilter } from "react-icons/ci";
 import { IoBagRemoveOutline } from "react-icons/io5";
 import { BsMagic } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
+import AllClientsModal from "./Component/Modal";
+import BasicExample from "./Component/SubClient";
+import { CiWarning } from "react-icons/ci";
 
 function Clients({ darkMode, setDarkMode }) {
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalShow = () => setShowModal(!showModal);
+  const handleAllClients = () => {
+    handleModalShow()
+  }
   return (
     <div
       className={`flex flex-wrap' ${darkMode ? "dark" : ""}`}
@@ -41,10 +51,13 @@ function Clients({ darkMode, setDarkMode }) {
             <span> ( 2 مجموعات)</span>
           </div>
           <div className="boxs flex flex-row items-center gap-6 pt-4" >
-            <div className="all w-full flex gap-6 items-center flex-col justify-between rounded-md border p-3 cursor-pointer">
+            <div
+              onClick={() => handleAllClients()}
+              className="all w-full flex gap-6 items-center flex-col justify-between rounded-md border p-3 cursor-pointer">
               <HiMiniUserGroup />
               <h3>جميع العملاء</h3>
               <h5> 129 عميل</h5>
+              <AllClientsModal showModal={showModal} handleModalClose={() => setShowModal(false)} />
             </div>
             <div className="first w-full flex gap-6 items-center flex-col justify-between rounded-md border p-3 cursor-pointer">
               <RiGroupLine />
@@ -71,6 +84,7 @@ function Clients({ darkMode, setDarkMode }) {
               </span>
               تصفية
             </button>
+            {/* <BasicExample  label="العملاء" /> */}
             <button className="text-black flex flex-row gap-2 items-center">
               <span>
                 <IoBagRemoveOutline />
@@ -98,6 +112,11 @@ function Clients({ darkMode, setDarkMode }) {
               تحرير سريع
             </button>
 
+          </div>
+          <div className="warning bg-yellow-400 w-full flex flex-row gap-3 items-center  p-3">
+            <CiWarning className=" text-5xl text-red-800" />
+            <h4>احذر تم تحديد  كل العملاء (76) ..</h4>
+            <button className="text-orange-300 border-b-4 border-yellow-300">الغاء التحديد</button>
           </div>
           <div className="body flex flex-row gap-3 items-center justify-between p-3">
             <div className="right flex flex-row gap-3 items-center">

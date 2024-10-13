@@ -13,25 +13,24 @@ function Helper() {
 
   const toggleSize = () => setIsLarge((prev) => !prev);
   return (
-    <div>
+    <div >
       {" "}
       <Button className="help-dropdown" onClick={handleShow}>
         <i className="sicon-life-ring mx-1"></i>
         المساعدة
         <i className="mx-2" style={{ color: "blue" }}>
           {showModal ? (
-            <i className="sicon-keyboard_arrow_down"></i>
-          ) : (
             <i className="sicon-keyboard_arrow_up"></i>
+          ) : (
+            <i className="sicon-keyboard_arrow_down"></i>
           )}
         </i>
       </Button>
       <Modal
         show={showModal}
         onHide={handleClose}
-        dialogClassName={`left-aligned-modal ${
-          isLarge ? "modal-large" : "modal-small"
-        }`}
+        dialogClassName={`left-aligned-modal ${isLarge ? "modal-large" : "modal-small"
+          }`}
       >
         <Modal.Header
           style={{

@@ -419,7 +419,7 @@ const ProductCard = ({ imageUrl, price }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-
+          
       <Modal
         show={showOptionsModal}
         onHide={handleOptionsModalClose}

@@ -51,7 +51,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         dir="rtl"
-        className="sidebar custom-scrollbar text-white lg:w-260px"
+        className="sidebar  custom-scrollbar text-white lg:w-260px"
         style={{
           width: isOpen ? "260px" : "0",
           minHeight: "calc(100vh - 56px)",
@@ -137,6 +137,7 @@ const Sidebar = () => {
           {/* share icon */}
 
           <button
+          className="-translate-x-3"
             style={{
               backgroundColor: "#baf3e6",
               height: "30.6px",

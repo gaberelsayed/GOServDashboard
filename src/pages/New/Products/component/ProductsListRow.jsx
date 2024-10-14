@@ -1,6 +1,5 @@
 import React from "react";
 import ProductsRow from "./ProductsRow";
-import "./Products.css";
 
 
 const ProductsListRow = () => {
@@ -14,7 +13,7 @@ const ProductsListRow = () => {
       price: "120",
     },
     {
-      imageUrl: "https://cdn.salla.sa/EZZNYp/PkSe9oUyRBb34Xv2cA5aFmlzKSfzv5pRIC3cZqFo.jpg",
+      imageUrl: "https://cdn.salla.sa/EZZNYp/7CsgOx4DC34rcY5mPlqKjZIsaCYDRqYbGDZcmZOF.png",
       price: "150",
     },
     {
@@ -43,7 +42,7 @@ const ProductsListRow = () => {
   ];
 
   return (
-    <div className="RowProduct">
+    <div className="">
       {products.map((product, index) => (
         <ProductsRow key={index} {...product}/>
       ))}

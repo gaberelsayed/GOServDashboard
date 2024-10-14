@@ -6,7 +6,7 @@ import ProductListRow from "./component/ProductsListRow";
 import "./ProductPage.css";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
-// import Helper from "../../components/Helper";
+import Helper from "../../components/Helper";
 
 const ProductsPage = (props) => {
   const [isProductListVisible, setProductListVisible] = useState(true);
@@ -26,11 +26,12 @@ const ProductsPage = (props) => {
     >
       <Sidebar />
       <Navbar darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
+      <Helper />
       <main
-        className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-0 lg:px-10 pb-[60px]"
+        className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "90px",
+          marginTop: "116px",
           marginRight: "250px",
           height: "100%",
           width: "calc(100% - 260px)",

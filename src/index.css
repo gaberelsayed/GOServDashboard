@@ -35,7 +35,7 @@ p {
 }
 
 .navBar {
-  z-index: 1000000000;
+  z-index: 90;
 }
 
 .sidebar p {

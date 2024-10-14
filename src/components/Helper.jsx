@@ -15,10 +15,10 @@ function Helper() {
   return (
     <div>
       {" "}
-      <Button className="help-dropdown" onClick={handleShow}>
+      <Button className="help-dropdown" onClick={handleShow} style={{marginRight:"15px"}}>
         <i className="sicon-life-ring mx-1"></i>
         المساعدة
-        <i className="mx-2" style={{ color: "blue" }}>
+        <i className="mx-2" style={{ color: "white" }}>
           {showModal ? (
             <i className="sicon-keyboard_arrow_down"></i>
           ) : (
@@ -41,10 +41,10 @@ function Helper() {
           }}
         >
           <Modal.Title>المقالات</Modal.Title>
-          <button onClick={toggleSize} className="toggle-btn">
-            <FaExpandArrowsAlt className="mx-2" />
-            {isLarge ? "تصغير" : "تكبير"}
-          </button>
+          <span onClick={toggleSize} className="toggle-btn" style={{display:"flex"}}>
+            <div>  {isLarge ? " تصغير" : "تكبير"}</div>
+            <div> <FaExpandArrowsAlt className="mx-2" /> </div>
+          </span>
         </Modal.Header>
         <Modal.Body
           className="custom-scroll"
@@ -55,7 +55,7 @@ function Helper() {
               type="text"
               className="form-control"
               placeholder="بحث عن ما تريد....."
-              style={{ marginBottom: "15px" }}
+              style={{margin:"auto auto" , marginBottom: "15px"}}
             />
             <Accordion defaultActiveKey="0" className="custom-accordion">
               <Accordion.Item eventKey="">

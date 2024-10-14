@@ -1,18 +1,23 @@
-.product-flex {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 2px;
-}
-
-@media (min-width: 1800px) {
+@media (min-width: 1500px) {
   .product-flex {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 4px;
   }
+  .RowProduct{
+    width:117%;
+  }
+
+}
+ @media (min-width: 1200px) and (max-width: 1500px) {
+  .product-flex {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 4px;
+  }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1100px) and (max-width:1200px) {
   .product-flex {
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -24,4 +29,8 @@
     grid-template-columns: repeat(1, 1fr); 
   }
 }
-
+@media (max-width:1700px){
+  .product-flex{
+    margin-right:-15px !important;
+  } 
+}

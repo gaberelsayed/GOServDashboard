@@ -1,19 +1,12 @@
-.product-container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0px;
-}
-
 .product-card {
   width: 300px;
-  height: 645px;
+  height: 600px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  margin: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -253,77 +246,44 @@
 .product-details {
   margin-top: 5px;
 }
+
 .field {
+  margin-bottom: 12px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 10px 0;
-  border: 1px solid #ddd;
+  justify-content: space-around;
+  border: 1px solid #dcdcdc;
 }
 
-.input-select-container {
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  overflow: hidden;
-  width: 75%;
+.field .InputClass {
+  width: 55vw;
+  margin-right: 0;
 }
 
-.select-wrapper {
-  display: flex;
-  align-items: center;
-  background-color: #f5f5f5;
+.field .selectClass {
+  width: 35vw;
+  padding-left: 10px;
 }
 
-.language-select {
-  border: none;
-  background-color: transparent;
-  padding: 8px 12px;
-  font-size: 14px;
-  appearance: none;
-  cursor: pointer;
-  text-align: center;
-}
-
-.input-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.product-input {
-  border: none !important;
-  padding: 8px 12px;
-  font-size: 14px;
-  text-align: right;
-  width: 250px;
-}
-
-.product-input:focus, .language-select:focus {
+.field .InputClass input {
   outline: none;
 }
 
-i.sicon-packed-box ,i.sicon-dollar-coin-stack{
-  margin-left: 8px;
-  color: #888;
+.field .selectClass select {
+  outline: none;
+  padding-bottom: 12px;
+  border-right: 1px solid #aaa;
 }
-i.sicon-dollar-coin-stack{
-  margin-right:23px; 
-}
-.product-input::placeholder {
-  font-size: 8px; 
-  color: #888;    
-}
+
 .field .InputNumberClass {
-  width: 100vw;
+  width: 70vw;
 }
 
 .field .InputNumberClass input {
   outline: none;
-
 }
+
 .field .labelPriceClass {
   width: 15vw;
-  border-right: 1px solid #aaa;
 }
 
 .field .labelPriceClass label {
@@ -331,6 +291,7 @@ i.sicon-dollar-coin-stack{
   width: 100%;
   height: 99%;
   text-align: center;
+  border-right: 1px solid #aaa;
   padding-left: 5px;
 }
 
@@ -345,9 +306,9 @@ i.sicon-dollar-coin-stack{
   width: 15vw;
   border: none;
   border-left: 1px solid #aaa;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .field .quantityAndChoies {
@@ -376,7 +337,6 @@ i.sicon-dollar-coin-stack{
 
 .field .selectClassificationClass select {
   outline: none;
-  width:89%;
 }
 
 .field .classificationNameClass p {
@@ -394,18 +354,17 @@ i.sicon-dollar-coin-stack{
 
 .field .DetailsClass p {
   text-align: center;
-  margin-top: 7px;
+  margin-top: 3px;
 }
 
 .field .selectDetailsClass {
   width: 40vw;
-  border-right: 1px solid #aaa;
+  padding-left: 10px;
 }
 
 .field .selectDetailsClass select {
   outline: none;
-  width:75%;
-
+  border-right: 1px solid #aaa;
 }
 
 .field label {
@@ -433,15 +392,7 @@ i.sicon-dollar-coin-stack{
 .save-button:hover {
   background-color: #ffe0b5;
 }
-.addnewphoto .modal-header,.options .modal-header,.CategoryModal .modal-header,.DetailsModalClass .modal-header,.notification .modal-header{
-  background-color: #b4d4d2ab;
-  color:black;
-}
-.addnewphoto .close-button,.options .close-button,.CategoryModal .close-button,.DetailsModalClass .close-button ,.modal-header .close-button{
-  text-decoration:none;
-  font-size:23px;
-  color:black;
-}
+
 .photoPopup .head-section {
   direction: rtl;
 }
@@ -457,10 +408,11 @@ i.sicon-dollar-coin-stack{
 }
 
 .image-upload-area {
+  border: 2px dashed #ccc;
   border-radius: 8px;
   text-align: center;
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 7%);
+  background-color: #f9f9f9;
 }
 
 .upload-button {
@@ -567,32 +519,32 @@ i.sicon-dollar-coin-stack{
   border-radius: 50%;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #668fbb;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   transform: translateX(14px);
 }
 
 .save-btn-options {
-  width: 100%;
-  background-color: #b2cdf4;
-  color: #000;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  background-color: white;
+  color: blue;
+  padding: 10px 15px;
+  border: 1px solid blue;
+  border-radius: 4px;
   cursor: pointer;
+  width: 100%;
 }
 
 .save-btn-options:hover {
-  background-color: #a0bbe4;
-  color: #000;
+  background-color: #ffe0b5;
+  color: blue;
 }
 
 input[type="text"] {
   padding: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   width: calc(85% - 20px);
   outline: none;
@@ -650,8 +602,9 @@ button:focus {
   align-items: center;
   margin-bottom: 10px;
   padding: 10px;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  /* background-color: #ffffff; */
+  background-color: #ffffff;
   direction: "rtl";
 }
 
@@ -662,12 +615,10 @@ button:focus {
 
 .toggleheader-section .right-toggleHeader {
   width: 50vw;
-  border:1px solid #ddd;
-  background-color: #ffff;
 }
 
 .toggleheader-section .right-toggleHeader input[type="text"] {
-  width: 68%;
+  width: 75%;
 }
 
 .toggleheader-section .right-toggleHeader select {
@@ -677,17 +628,22 @@ button:focus {
 .toggleheader-section .left-toggleHeader {
   display: flex;
   width: 40vw;
-
 }
 
-.toggleheader-section .left-toggleHeader .iconSelectclass{
+.toggleheader-section .left-toggleHeader select {
   width: 70%;
-  margin-right:10px;
-
 }
 
 .toggleheader-section .left-toggleHeader button {
   width: 15%;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .option-input {
@@ -697,44 +653,11 @@ button:focus {
   margin-right: 10px;
   width: 45%;
 }
-.right-toggleHeader .option-input::placeholder{
-  margin-right:10px !important;
-}
+
 .option-select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-.option-container-body{
-  width:90%;
-  display:flex;
-  border:1px solid #ddd;
-  margin:auto auto;
-  padding:5px;
-  margin-bottom:5px;
-  background-color: #ffff;
-}
-.option-container-body .option-select-body{
- width:15%;
-}
-.option-container-body .option-input-body{
- width:90%;
-}
-
-.delete-button-body {
-  background: none;
-  height:40px;
-  width:40px;
-  color: red;
-  cursor: pointer;
-  margin-left:20px;
-  margin-top:10px;
-}
-.delete-button-body i{
-  border:1px solid #aaa;
-  border-radius:50%;
-  padding:5px;
-  font-size:25px !important;
 }
 
 .add-option-button {
@@ -765,24 +688,19 @@ button:focus {
 
 .addNewOption {
   margin-top: 10px;
-  padding: 20px;
+  padding: 10px 20px;
   cursor: pointer;
   color: #aaa;
   width: 100%;
-  background-color: #f8f8f8;
 }
 
 .delete-button-list {
-  background:red;
+  background: #e0e0e0;
   border: 2px solid #ffffff;
-  color: white;
+  color: red;
   cursor: pointer;
   margin-right: 10px;
-
-}
-
-.delete-button-list i{
-  font-size: 20px !important; 
+  font-size: 20px;
 }
 
 .CategoryModal .modal-header {
@@ -851,23 +769,21 @@ button:focus {
 }
 
 .CategoryModal select {
-    width: 98%;
-    padding: 10px;
-    margin-top: 11px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    margin-right:0 !important;
-
+  width: 92%;
+  padding: 10px;
+  margin-top: 11px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
 .field-category {
-    display: flex;
-    border: 1px solid #ced4da;
-    height: 57px;
-    margin-bottom: 25px;
-    width: 97%;
-    border-radius: 10px;
-    margin-right: 15px;
+  display: flex;
+  border: 1px solid #ced4da;
+  height: 50px;
+  margin-bottom: 25px;
+  width: 98%;
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
 .field-category .InputCategoryClass {
@@ -902,13 +818,11 @@ button:focus {
 
 .modal-subheader {
   display: flex;
-  justify-content: center;
-  align-items:center;
+  justify-content: space-around;
+  background-color: #e0f0fa;
   border: 1px solid #0943af;
-  width:95%;
-  margin:auto auto;
+  border-radius: 13px;
   margin-top: 5px;
-  border-radius:9px;
 }
 
 .subheader-button {
@@ -916,8 +830,13 @@ button:focus {
   color: #005379;
   border: none !important;
   width: 40%;
-
 }
+
+.subheader-button:hover {
+  background-color: #005379;
+  color: white;
+}
+
 .subheader-button:active,
 .subheader-button:focus {
   background-color: #005379;
@@ -933,17 +852,19 @@ button:focus {
 
 .custom-select {
   width: 30%;
-  padding: 7px;
+  padding: 5px;
+  background-color: #e7eff7;
   border: 1px solid #9fbfe3;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 20px;
   color: #000;
+  appearance: none;
+  position: relative;
 }
 
 .footerDetailsClass {
   display: flex;
   justify-content: space-between;
-
 }
 
 .file-upload-section {
@@ -996,15 +917,14 @@ button:focus {
 }
 
 .delete-button {
-  background-color: #fff;
-  color: #ff4d4d;
+  background-color: #ff4d4d;
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border:1px solid #ff4d4d;
 }
 
 .delete-button .icon {
@@ -1059,20 +979,33 @@ select {
   margin-bottom: 10px;
 }
 
-.DetailsBodyClass .product-details-section .form-group-flex .form-group-flex-one {
+.DetailsBodyClass
+  .product-details-section
+  .form-group-flex
+  .form-group-flex-one {
   width: 47%;
 }
 
-.DetailsBodyClass .product-details-section .form-group-flex .form-group-flex-one input[type="text"] {
+.DetailsBodyClass
+  .product-details-section
+  .form-group-flex
+  .form-group-flex-one
+  input[type="text"] {
   width: 96%;
-
 }
 
-.DetailsBodyClass .product-details-section .form-group-flex-3col .form-group-flex-col {
+.DetailsBodyClass
+  .product-details-section
+  .form-group-flex-3col
+  .form-group-flex-col {
   width: 29%;
 }
 
-.DetailsBodyClass .product-details-section .form-group-flex-3col .form-group-flex-col input[type="text"] {
+.DetailsBodyClass
+  .product-details-section
+  .form-group-flex-3col
+  .form-group-flex-col
+  input[type="text"] {
   width: 91%;
 }
 
@@ -1085,11 +1018,10 @@ select {
   width: 89%;
   border-radius: 6px;
   margin-right: 31px;
-  padding-top:4px;
 }
 
 .field-productDetails .InputproductDetailsClass {
-  width: 75%;
+  width: 85%;
 }
 
 .field-productDetails .InputproductDetailsClass input {
@@ -1097,15 +1029,14 @@ select {
 }
 
 .field-productDetails .selectproductDetailsClass {
-  width: 20%;
+  width: 10%;
+  margin-top: -10px;
 }
 
 .field-productDetails .selectproductDetailsClass select {
-  width: 70%;
-  border: none !important;
+  width: 100%;
+  border: none;
   border-right: 1px solid #ced4da;
-  margin-top:-4px;
-  height:43px;
 }
 
 .form-control {
@@ -1127,7 +1058,7 @@ select {
 .additional-content {
   border: 1px solid #ccc;
   margin: 15px;
-  background-color:#e2e4e7;
+  background-color: #e2e4e7;
 }
 .product-form {
   border: 1px solid #ddd;
@@ -1135,8 +1066,8 @@ select {
   border-radius: 10px;
 }
 
-.quantity-section{
-  display:flex;
+.quantity-section {
+  display: flex;
   justify-content: space-between;
 }
 .quantity-control {
@@ -1154,58 +1085,27 @@ select {
   font-weight: bold;
 }
 
-.addNewOptionDetails{
-  margin-top: 10px;
-  padding: 20px;
-  font-size:20px;
-  color:black;
-  cursor: pointer;
-  width: 100%;
-  border:1px solid #999;
-}
-
 @media (min-width: 1500px) {
-  .product-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
   .product-card {
-    width: 390px;
-  }
-}
-@media (min-width:1400px) and (max-width: 1500px) {
-  .product-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  
-  }
-  .product-card {
-    width:370px;
-  }
-
-}
-@media (min-width:1300px) and (max-width: 1400px) {
-  .product-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-  
-  }
-  .product-card {
-    width:320px;
+    width: 375px;
   }
 }
 
+@media (max-width: 1200px) {
+  .product-card {
+    width: 360px;
+  }
+}
 
 @media (max-width: 1000px) {
   .product-card {
     width: 400px;
-    display:flex;
+    display: flex;
     justify-content: center !important;
+  }
+}
+@media (max-width: 500px) {
+  .product-card {
+    width: 90%;
   }
 }

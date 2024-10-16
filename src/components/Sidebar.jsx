@@ -194,7 +194,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="#" className="sidebarLink ">
+            <Link to="/profilepage" className="sidebarLink ">
               <LuNewspaper />
               الصفحات التعريفية
             </Link>

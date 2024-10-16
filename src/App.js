@@ -9,6 +9,8 @@ import Clients from "./pages/Clients/Clients";
 import Reports from "./pages/Reports/Reports";
 import Experts from "./pages/Experts/Experts";
 import NotFound from "./pages/NotFound/NotFound";
+import Feedback from './pages/Feedback/Feedback';
+import ProfilePage from "./pages/Profilepage/Profilepage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,6 +39,18 @@ function App() {
         <Route
           path="/reports"
           element={<Reports darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/experts"
+          element={<Experts darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/feedback"
+          element={<Feedback darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/profilepage"
+          element={<ProfilePage darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
         <Route
           path="/experts"

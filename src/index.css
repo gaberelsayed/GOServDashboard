@@ -67,11 +67,11 @@ li.navHeader:hover {
 }
 
 .sidebarList li:hover {
-  background: #003c47;
+  background: #003c47 !important;
 }
 
 .sidebarList li:active {
-  background: #73e7cc;
+  background: #73e7cc !important;
 }
 
 .fixed-footer {
@@ -87,6 +87,7 @@ li.navHeader:hover {
 
 /* Webkit browsers for (Chrome) */
 .custom-scrollbar::-webkit-scrollbar {
+  border-radius: 4px;
   width: 6px;
 }
 
@@ -98,6 +99,7 @@ li.navHeader:hover {
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: #005766;
+  border-radius: 10px;
   width: 6px;
 }
 

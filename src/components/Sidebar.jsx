@@ -31,7 +31,7 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div>
+    <div className="fixeds ">
       {/* Toggle button */}
       <button
         className="lg:hidden"
@@ -86,6 +86,7 @@ const Sidebar = () => {
                 //   width:'fit-content !important',
                 height: "21.5px",
                 fontSize: "12px",
+                zIndex: 2,
                 lineHeight: "12px",
                 textAlign: "center",
                 verticalAlign: "middle",
@@ -207,7 +208,7 @@ const Sidebar = () => {
           </li>
           {/* navigation headers */}
           <li className="mt-8 navHeader">
-            <Link 
+            <Link
               to=""
               style={{
                 color: "#1e90ff",

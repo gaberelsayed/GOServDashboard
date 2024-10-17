@@ -41,6 +41,7 @@ p {
 .sidebar p {
   color: black;
 }
+
 .sidebarLink {
   display: flex;
   gap: 10px;
@@ -64,6 +65,7 @@ li.navHeader:hover {
 .sidebarList li {
   color: black;
 }
+
 .sidebarList li:hover {
   background: #003c47;
 }
@@ -279,18 +281,18 @@ aside ul li div img {
   align-self: start;
 }
 
-aside ul li > div {
+aside ul li>div {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-aside ul li > div {
+aside ul li>div {
   font-size: 14px;
   color: #666;
 }
 
-aside ul li > div span {
+aside ul li>div span {
   font-size: 13px;
   color: #999;
 }
@@ -314,6 +316,7 @@ aside ul li > div span {
   overflow-y: scroll;
   padding-bottom: 16px;
 }
+
 .outofstock span {
   font-size: 12px;
   color: #ccc;
@@ -340,8 +343,8 @@ aside ul li > div span {
 
 .dark .article-container,
 .dark .month-summary footer,
-.dark .lastOrders > div,
-.dark .leftsideContainer > ul {
+.dark .lastOrders>div,
+.dark .leftsideContainer>ul {
   background: #272626;
 }
 
@@ -353,7 +356,7 @@ aside ul li > div span {
 }
 
 .dark .sidebar,
-.dark.navBar > div:first-of-type {
+.dark.navBar>div:first-of-type {
   background-color: #212121 !important;
 }
 
@@ -361,21 +364,26 @@ aside ul li > div span {
   .theme-buttons {
     display: none;
   }
+
   .nav-wrapper .search-wrapper {
     width: 100% !important;
   }
+
   .nav-wrapper input {
     width: 100% !important;
     max-width: 100% !important;
   }
+
   .sidebar {
     position: relative;
     z-index: 100000000000;
   }
+
   canvas {
     height: 200px !important;
   }
 }
+
 .slidePage .sidebar {
   position: fixed;
 }
@@ -403,12 +411,14 @@ aside ul li > div span {
   left: 35px;
   top: 75px;
 }
+
 .left-aligned-modal {
   margin: 0 !important;
   justify-content: flex-start !important;
   margin-top: 140px !important;
   width: auto !important;
 }
+
 .modal-small {
   max-width: 40% !important;
 }
@@ -427,12 +437,14 @@ aside ul li > div span {
   overflow: hidden;
   background-color: #e0f7fa;
 }
+
 .toggle-btn {
   background-color: transparent !important;
   border: none;
   font-size: 15px;
   font-weight: 10px;
 }
+
 .accordion-button {
   flex-direction: row;
 }
@@ -468,6 +480,7 @@ aside ul li > div span {
   color: #000;
   /* background-image: url("../../../../public/minusFIll.svg"); */
 }
+
 .custom-scroll {
   overflow-y: scroll;
   direction: rtl;
@@ -497,6 +510,7 @@ aside ul li > div span {
   align-items: center;
   flex-direction: row-reverse;
 }
+
 .modal-header .toggle-btn {
   color: #000;
 }
@@ -510,11 +524,13 @@ aside ul li > div span {
     height: 70vh;
   }
 }
+
 @media (max-width: 700px) {
   .modal-dialog.modal-small {
     width: 80% !important;
     max-width: 80% !important;
   }
+
   .modal-dialog.modal-large {
     width: 100% !important;
     max-width: 100% !important;

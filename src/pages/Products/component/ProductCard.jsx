@@ -32,7 +32,7 @@ function ToggleCheckButton() {
   );
 }
 
-const ProductCard = ({ imageUrl, price }) => {
+const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDelete}) => {
   const [productDetails, setProductDetails] = useState({
     language: "AR",
     price: 150,
@@ -58,9 +58,13 @@ const ProductCard = ({ imageUrl, price }) => {
       <div className="product-card">
         <div className="product-image">
           <img src={imageUrl} alt="" />
-          <button className="upload-icon">
-            <ToggleCheckButton />
-          </button>
+          {newprd ? (
+            <button className="upload-icon deleteCardButton"  onClick={onDelete}>X</button>
+          ) : (
+            <button className="upload-icon">
+              <ToggleCheckButton />
+            </button>
+          )}
           <div className="media-buttons">
             <div className="right">
               <div
@@ -72,7 +76,7 @@ const ProductCard = ({ imageUrl, price }) => {
               </div>
             </div>
             <div className="left">
-              <AddNewPhotoModal  isColumn={true}/>
+              <AddNewPhotoModal isColumn={true} />
             </div>
           </div>
         </div>
@@ -80,40 +84,38 @@ const ProductCard = ({ imageUrl, price }) => {
           <div className="field">
             <div className="input-select-container">
               <div className="input-wrapper">
-              <i
-                className="sicon-packed-box"
-                style={{ marginRight: "8px" }}
-              ></i>
+                <i
+                  className="sicon-packed-box"
+                  style={{ marginRight: "8px" }}
+                ></i>
 
                 <input
                   type="text"
-                  placeholder="خدمة حسب الطلب - ادخل اسم المنتج"
-                  defaultValue="طباعة على الملابس"
+                  placeholder={placeholder}
+                  Value={Prductname}
                   className="product-input"
                 />
               </div>
             </div>
             <div className="select-wrapper">
-                <select
-                  name="language"
-                  value={productDetails.language}
-                  onChange={handleChange}
-                  className="language-select"
-                >
-                  <option value="AR">AR</option>
-                  <option value="EN">EN</option>
-                </select>
-              </div>
+              <select
+                name="language"
+                value={productDetails.language}
+                onChange={handleChange}
+                className="language-select"
+              >
+                <option value="AR">AR</option>
+                <option value="EN">EN</option>
+              </select>
+            </div>
           </div>
           <div className="field">
             <div className="InputNumberClass">
-              <i
-                className="sicon-dollar-coin-stack"
-              ></i>
+              <i className="sicon-dollar-coin-stack"></i>
               <input
                 type="text"
                 name="price"
-                value={productDetails.price}
+                value={price}
                 placeholder="السعر"
                 onChange={handleChange}
               />
@@ -122,9 +124,11 @@ const ProductCard = ({ imageUrl, price }) => {
               <label style={{ marginTop: "7px" }}>ر.س</label>
             </div>
           </div>
-          <div className="field" style={{padding:"10px"}}>
+          <div className="field" style={{ padding: "10px" }}>
             <div className="numberOfQuantity">
-              <p style={{ color: "black" , fontSize:"10px"}}>كمية غير محدودة</p>
+              <p style={{ color: "black", fontSize: "10px" }}>
+                كمية غير محدودة
+              </p>
             </div>
             {/* <div className="icon-1">
               <i className="sicon-bell-time"></i>
@@ -149,7 +153,7 @@ const ProductCard = ({ imageUrl, price }) => {
                 </svg>
               </div>
             </div>
-            <OptionsModal isColumn={true}/>
+            <OptionsModal isColumn={true} />
           </div>
           <div className="field">
             <div className="selectClassificationClass">
@@ -162,10 +166,10 @@ const ProductCard = ({ imageUrl, price }) => {
                 <option value="">كفر جوال هدية</option>
               </select>
             </div>
-            <CategoryModal  isColumn={true}/>
+            <CategoryModal isColumn={true} />
           </div>
           <div className="field">
-            <DetailsModal isColumn={true}/>
+            <DetailsModal isColumn={true} />
             <div className="selectDetailsClass">
               <select name="" placeholder="اختر تصنيف المنتج">
                 <option value="">المزيد</option>

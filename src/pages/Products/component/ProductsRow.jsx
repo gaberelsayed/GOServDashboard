@@ -14,7 +14,7 @@ import { MdDelete } from "react-icons/md";
 import { FaTrash, FaUpload } from "react-icons/fa";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-// import OptionsModal from "./modalsProduct/CardModals/OptionsModal";
+
 import AddNewPhotoModal from "./modalsProduct/CardModals/AddNewPhotoModal";
 import OptionsModal from "./modalsProduct/CardModals/OptionsModal";
 import CategoryModal from "./modalsProduct/CardModals/CategoryModal";
@@ -59,7 +59,7 @@ const Select = styled.select`
   border: 1px solid #ccc;
 `;
 
-const ProductsRow = ({ imageUrl }) => {
+const ProductsRow = ({ imageUrl, price, Prductname, placeholder, newprd , onDelete}) => {
   function ToggleCheckButton() {
     const [isChecked, setIsChecked] = useState(false);
 
@@ -105,9 +105,13 @@ const ProductsRow = ({ imageUrl }) => {
       <Row className="RowFlex">
         <Col className="col-1">
           <div style={{ marginTop: "-15px" }}>
+          {newprd ? (
+            <button className="check-icon-btn deleteCardButton" style={{color:"white",backgroundColor:"red"}}  onClick={onDelete}>X</button>
+          ) : (
             <button className="check-icon-btn">
-              <ToggleCheckButton />
-            </button>
+            <ToggleCheckButton />
+          </button> 
+          )}
           </div>
           <div
             className="icon-upload"
@@ -135,8 +139,8 @@ const ProductsRow = ({ imageUrl }) => {
                   ></i>
                   <input
                     type="text"
-                    placeholder="خدمة حسب الطلب -ادخل اسم المنتج"
-                    defaultValue="طباعة الملابس"
+                    placeholder={placeholder}
+                    Value={Prductname}
                     style={{ border: "none", fontSize: "12px" }}
                     className="product-input"
                   />
@@ -165,7 +169,7 @@ const ProductsRow = ({ imageUrl }) => {
                   <input
                     type="text"
                     name="price"
-                    value={productDetails.price}
+                    value={price}
                     placeholder="السعر"
                     onChange={handleChange}
                     style={{ border: "none" }}

@@ -108,7 +108,11 @@
   border: none;
   cursor: pointer;
 }
-
+.deleteCardButton{
+  color:blcak;
+  background-color:red;
+  font-weight:bold;
+}
 .product-details {
   padding: 7px;
   display: flex;
@@ -651,7 +655,6 @@ button:focus {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  /* background-color: #ffffff; */
   direction: "rtl";
 }
 

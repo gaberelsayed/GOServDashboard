@@ -9,11 +9,11 @@ import AddNewProductModal from "./modalsProduct/productHeadModals/addnewproduct/
 import FilterModal from "./modalsProduct/productHeadModals/filter/FilterModal";
 import ServiceModal from "./modalsProduct/productHeadModals/service/ServiceModal";
 
-const ProductHead = ({ showProductList, hideProductList }) => {
+const ProductHead = ({ showProductList, hideProductList , addNewProduct }) => {
   return (
     <div className="header-container">
       <div className="header-right" >
-        <AddNewProductModal />
+        <AddNewProductModal addNewProduct={addNewProduct} />
       </div>
       <div className="header-left">
         < FilterModal/>

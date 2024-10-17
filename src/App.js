@@ -11,6 +11,8 @@ import Experts from "./pages/Experts/Experts";
 import NotFound from "./pages/NotFound/NotFound";
 import Feedback from './pages/Feedback/Feedback';
 import ProfilePage from "./pages/Profilepage/Profilepage";
+import Settings from "./pages/Settings/Settings";
+import Wallet from "./pages/Wallet/Wallet";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -55,6 +57,14 @@ function App() {
         <Route
           path="/experts"
           element={<Experts darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/settings"
+          element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/wallet"
+          element={<Wallet darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
         <Route
           path="*"

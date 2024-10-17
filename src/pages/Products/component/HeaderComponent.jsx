@@ -7,7 +7,7 @@ import "./HeaderComponent.css";
 const HeaderComponent = ({ label }) => {
   return (
     <>
-      <div className="header-container-prd">
+      <div className="header-container-prd my-3">
         <div className="nav-items">
           <FaHome className="nav-icon" />
           <Link to="/" className="nav-item-home">الرئيسية</Link>

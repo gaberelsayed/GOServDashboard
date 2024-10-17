@@ -7,7 +7,7 @@ export default function FAQ() {
         <faq className='grid-rows-1 grid xl:grid-cols-2  mx-3 gap-3'>
             <div className="leftside gap-3 flex flex-col">
 
-                <Accordion defaultActiveKey={null} className="">
+                <Accordion className="">
                     <Accordion.Item eventKey="0" className='overflow-hidden  bg-[#F8F8F8]'>
                         <Accordion.Header className='overflow-hidden  focus:bg-[#BAF3E5]'>
                             <div style={{ flexGrow: 1, textAlign: "right" }}>

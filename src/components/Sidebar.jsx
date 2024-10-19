@@ -211,10 +211,10 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/mahally" className="sidebarLink ">
               <i class="sicon-mahally"></i>
               محلي
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
@@ -240,6 +240,14 @@ const Sidebar = () => {
               الأدوات التسويقية
             </a>
           </li>
+          
+          <li>
+            <Link to="/influencers" className="sidebarLink ">
+              <TbSpeakerphone />
+                 الموثرين
+            </Link>
+          </li>
+
           <li>
             <a href="#" className="sidebarLink ">
               الأدوات التسويقية
@@ -268,6 +276,7 @@ const Sidebar = () => {
               الأدوات التسويقية
             </a>
           </li>
+
 
           {/* مظهر المنتج */}
           <li className="mt-8 navHeader">

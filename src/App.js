@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import Home from "./pages/Home";
 import ProductsPage from "./pages/Products/ProductsPage";
 import Orders from "./pages/Orders/Orders";
 import Clients from "./pages/Clients/Clients";
 import Reports from "./pages/Reports/Reports";
+import Mahally from "./pages/Mahally/Mahally";
+import Influencers from "./pages/Influencers/Influencers";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -35,6 +37,14 @@ function App() {
         <Route
           path="/reports"
           element={<Reports darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+      <Route
+          path="/mahally"
+          element={<Mahally darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+          <Route
+          path="/influencers"
+          element={<Influencers darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
       </Routes>
     </BrowserRouter>

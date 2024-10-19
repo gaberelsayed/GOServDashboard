@@ -1,0 +1,36 @@
+.header-container-inf {
+  display: flex !important;
+  justify-content: space-between;
+  margin-bottom:20px;
+  margin-right:30px !important;
+}
+.nav-items-inf {
+  display: flex;
+  font-size: 16px; 
+  color:gray; 
+  margin-top:-20px;
+}
+
+.nav-item-inf,.nav-item-home-inf {
+  margin: 0 5px; 
+}
+.nav-icon-inf {
+  margin-left: 5px; 
+  font-size: 20px; 
+}
+.nav-item-home-inf,.nav-icon-inf {
+  color:#266abfb3;
+
+}
+@media (width:1700px){
+  .header-container-infl{
+    margin-right:350px !important;
+    position:relative;
+  }
+  .help-class{
+    position:absolute;
+    left:-300px;
+    top:-90px
+  
+  }
+}

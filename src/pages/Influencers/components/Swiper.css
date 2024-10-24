@@ -53,7 +53,7 @@
 .swiper-item.selected .clear{
   display:block;
 }
-.flexContenetClass {
+.flexContenetClass-influencers {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
@@ -70,7 +70,7 @@
 .swiper-item.selected .icon-Class{
   color:blue !important;
 }
-h3 {
+.flexContenetClass-influencers h3 {
   font-size: 15px;
   margin: 0;
   margin-bottom: 5px;
@@ -87,7 +87,7 @@ span {
 .swiper-item.selected h3{
   color:blue !important;
 }
-.search-container {
+.search-container-influencers {
   display: flex;
   border-radius: 5px;
   width: 95%;
@@ -95,7 +95,7 @@ span {
   border:1px solid #f2f2f2;
 }
 
- .search-input {
+ .search-input-influencers {
   border: none;
   background-color: transparent;
   font-size: 14px;
@@ -103,17 +103,17 @@ span {
 
 }
 
- .search-input:focus {
+ .search-input-influencers:focus {
   outline: none;
 }
 
-.search-button {
+.search-button-influencers {
   background-color: transparent;
   border: none;
   cursor: pointer;
 } 
 
-.search-icon {
+.search-icon-influencers {
   color: #bbb !important;
   font-size:16px;
   margin-right:10px;

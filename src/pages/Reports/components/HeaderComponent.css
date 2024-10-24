@@ -1,0 +1,36 @@
+.header-container-reports-comp {
+  display: flex !important;
+  justify-content: space-between;
+  margin-right:-100px !important;
+}
+
+.nav-items-reports{
+  display: flex;
+  align-items: center;
+  font-size: 16px; 
+  color:gray; 
+  margin-left:780px !important;
+  margin-top:40px;
+}
+
+.nav-item-reports,.nav-item-home-reports {
+  margin: 0 5px; 
+}
+.nav-icon-orders {
+  margin-left: 5px; 
+  font-size: 20px; 
+}
+.nav-item-home-reports,.nav-icon-reports {
+  color:#266abfb3;
+
+}
+@media (min-width:1800px){
+  .nav-items-reports{
+    display: flex;
+    align-items: center;
+    font-size: 16px; 
+    color:gray; 
+    margin-left:1400px !important;
+    margin-top:40px;
+  }
+}

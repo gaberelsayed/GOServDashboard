@@ -142,35 +142,35 @@ const CardGrid = () => {
   ];
 
   return (
-    <div className="card-grid">
+    <div className="card-grid-influencers">
       {data.map((item) => (
-        <div className="card" key={item.id}>
-          <div className="card-header-infl">
-            <img src={item.avatar} alt={item.name} className="avatar" />
-            <div className="info">
+        <div className="card-influencers" key={item.id}>
+          <div className="card-header-influencers">
+            <img src={item.avatar} alt={item.name} className="avatar-influencers" />
+            <div className="info-influencers">
               <h4>{item.name}</h4>
-              <div className="stats">
+              <div className="stats-influencers">
                 <span>
                   {" "}
                   {item.comments}{" "}
-                  <i className="sicon-instagram social-icon"></i>
+                  <i className="sicon-instagram social-icon-influencers"></i>
                 </span>
                 <span>
                   {" "}
-                  {item.likes} <i className="sicon-snapchat social-icon"></i>
+                  {item.likes} <i className="sicon-snapchat social-icon-influencers"></i>
                 </span>
                 <span>
-                  {item.followers} <i className="sicon-tiktok social-icon"></i>
+                  {item.followers} <i className="sicon-tiktok social-icon-influencers"></i>
                 </span>
               </div>
               <div style={{display:"flex"}}> 
                 {item.categories.map((category, index) => (
-                  <span className="category" key={index}>
+                  <span className="category-influencers" key={index}>
                   {item.icon}  {category}
                   </span>
                   
                 ))} 
-                <span className="category">{item.rating}</span>
+                <span className="category-influencers">{item.rating}</span>
               </div>
             </div>
           </div>

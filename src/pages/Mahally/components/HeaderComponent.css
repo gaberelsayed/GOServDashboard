@@ -2,14 +2,14 @@
   display: flex !important;
   justify-content: space-between;
   margin-bottom:20px;
-  margin-right:30px !important;
+  margin-right:80px !important;
 }
 .nav-items {
   display: flex;
   align-items: center;
   font-size: 16px; 
   color:gray; 
-  margin-top:-20px;
+  margin-top:-15px;
 }
 
 .nav-item,.nav-item-home {

@@ -12,7 +12,7 @@ import ServiceModal from "./modalsProduct/productHeadModals/service/ServiceModal
 const ProductHead = ({ showProductList, hideProductList , addNewProduct }) => {
   return (
     <div className="header-container">
-      <div className="header-right" >
+      <div className="header-right" style={{marginRight:"-20px"}} >
         <AddNewProductModal addNewProduct={addNewProduct} />
       </div>
       <div className="header-left">

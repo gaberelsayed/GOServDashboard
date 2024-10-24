@@ -4,8 +4,10 @@ import "./Reports.css";
 
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
-import Helper from "../../components/Helper";
-
+import HeaderComponent from './components/HeaderComponent';
+import ReportHeader from './components/ReportHeader';
+import ReportSelector from "./components/ReportSelector";
+import ReportCards from "./components/ReportCards";
 function Reports({ darkMode, setDarkMode }) {
   return (
     <div
@@ -14,13 +16,12 @@ function Reports({ darkMode, setDarkMode }) {
     >
       <Sidebar />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Helper />
+      {/* <Helper /> */}
       <main
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "116px",
-          // padding: "0 40px 60px",
+          marginTop: "40px",
           height: "100%",
           width: "calc(100% - 260px)",
           minHeight: "100vh",
@@ -29,7 +30,10 @@ function Reports({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
-        <div className="Reports">Reports</div>
+        <HeaderComponent/>
+        <ReportHeader/>
+        <ReportSelector />
+        <ReportCards/>
       </main>
     </div>
   );

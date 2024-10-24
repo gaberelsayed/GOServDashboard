@@ -54,7 +54,7 @@ const SwiperComponent = () => {
                <span className='clear-icon'>x</span>
             </div>
            </div>
-          <div className="flexContenetClass">
+          <div className="flexContenetClass-influencers">
             <div>
               <h3 style={{ position: 'relative' }}>
                 {item.title}
@@ -68,11 +68,11 @@ const SwiperComponent = () => {
       ))}
     </Swiper>
 
-    <div class="search-container">
-       <button class="search-button">
-          <IoSearch class="search-icon" />
+    <div class="search-container-influencers">
+       <button class="search-button-influencers">
+          <IoSearch class="search-icon-influencers" />
         </button>
-        <input type="text" class="search-input" placeholder="اﻟﺒﺤﺚ بإسم المؤثر"/>
+        <input type="text" class="search-input-influencers" placeholder="اﻟﺒﺤﺚ بإسم المؤثر"/>
     </div>
     </>
 

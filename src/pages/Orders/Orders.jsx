@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import HeaderComponent from './component/HeaderComponent';
-import RequestHead from './component/RequestHead';
-import Swiper from './component/SwiperOrders';
+import React, { useState } from "react";
+import HeaderComponent from "./component/HeaderComponent";
+import RequestHead from "./component/RequestHead";
+import Swiper from "./component/SwiperOrders";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 // import Helper from "../../components/Helper";
-import OrderSummary from './component/OrderSummary';
+import OrderSummary from "./component/OrderSummary";
 
 function Orders({ darkMode, setDarkMode }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [showDetails, setShowDetails] = useState(false); 
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleCardClick = (index) => {
     if (selectedIndex === index) {
       setShowDetails(!showDetails);
-      setSelectedIndex(null); 
+      setSelectedIndex(null);
     } else {
       setSelectedIndex(index);
       setShowDetails(true);
@@ -37,13 +37,17 @@ function Orders({ darkMode, setDarkMode }) {
           minHeight: "100vh",
           display: "flex",
           flexWrap: "wrap",
+
           justifyContent: "space-around",
         }}
       >
-          <HeaderComponent />
-          <RequestHead />
-          <Swiper selectedIndex={selectedIndex} onCardClick={handleCardClick} style={{width:"100%"}}/>
-          <OrderSummary selectedIndex={selectedIndex} showDetails={showDetails} />
+        <RequestHead />
+        <Swiper
+          selectedIndex={selectedIndex}
+          onCardClick={handleCardClick}
+          style={{ width: "100%" }}
+        />
+        <OrderSummary selectedIndex={selectedIndex} showDetails={showDetails} />
       </main>
     </div>
   );

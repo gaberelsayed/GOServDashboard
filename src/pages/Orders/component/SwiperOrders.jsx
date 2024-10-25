@@ -1,18 +1,84 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faGift, faLock, faTrash, faTimes } from '@fortawesome/free-solid-svg-icons';
-import 'swiper/css';
-import './SwiperOrders.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheck,
+  faGift,
+  faLock,
+  faTrash,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import "swiper/css";
+import "./SwiperOrders.css";
 
 const SwiperOrders = ({ onCardClick, selectedIndex }) => {
   const Orderdata = [
-    { title: 'جاري التوصيل', count: 0, color: '#999', iconOrder: <i className="order-st-entr sicon-shipping" style={{ fontSize: '20px' }}></i> },
-    { title: 'تم التنفيذ', count: 0, color: '#999', iconOrder: <i className="order-st-entr sicon-check" style={{ fontSize: '20px' }}></i> },
-    { title: 'قيد التنفيذ', count: 0, color: '#999', iconOrder: <i className="order-st-entr sicon-gift" style={{ fontSize: '20px' }}></i> },
-    { title: 'بانتظار المراجعة', count: 0, color: '#999', iconOrder: <i className="order-st-entr sicon-time" style={{ fontSize: '20px' }}></i> },
-    { title: 'بانتظار الدفع', count: 0, color: '#999', iconOrder: <i className="order-st-entr sicon-watch" style={{ fontSize: '20px' }}></i> },
-    { title: 'محذوف', count: 0, color: '#999',iconOrder: <i className="order-st-entr sicon-folder-cancel" style={{ fontSize: '20px' }}></i> },
+    {
+      title: "جاري التوصيل",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-shipping"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
+    {
+      title: "تم التنفيذ",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-check"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
+    {
+      title: "قيد التنفيذ",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-gift"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
+    {
+      title: "بانتظار المراجعة",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-time"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
+    {
+      title: "بانتظار الدفع",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-watch"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
+    {
+      title: "محذوف",
+      count: 0,
+      color: "#999",
+      iconOrder: (
+        <i
+          className="order-st-entr sicon-folder-cancel"
+          style={{ fontSize: "20px" }}
+        ></i>
+      ),
+    },
   ];
 
   return (
@@ -22,13 +88,16 @@ const SwiperOrders = ({ onCardClick, selectedIndex }) => {
       loop={true}
       onSlideChange={(swiper) => onCardClick(swiper.activeIndex)}
     >
-      { Orderdata.map((item, index) => (
+      {Orderdata.map((item, index) => (
         <SwiperSlide key={index}>
           <div
-            className={`swiper-item-orders ${selectedIndex === index ? 'selected' : ''}`}
+            className={`swiper-item-orders ${
+              selectedIndex === index ? "selected" : ""
+            }`}
             style={{
               borderColor: item.color,
-              backgroundColor: selectedIndex === index ? '#007bff61' : '#e8f1f129',
+              backgroundColor:
+                selectedIndex === index ? "#a6abc8" : "#e8f1f129",
             }}
             onClick={() => onCardClick(index)}
           >
@@ -41,7 +110,6 @@ const SwiperOrders = ({ onCardClick, selectedIndex }) => {
                   <div className="fa-times-icon-orders">
                     <FontAwesomeIcon icon={faTimes} size="2x" />
                   </div>
-                
                 </div>
               ) : (
                 item.iconOrder
@@ -50,7 +118,8 @@ const SwiperOrders = ({ onCardClick, selectedIndex }) => {
             <div className="flexContenetClass-orders">
               <div>
                 <h3 style={{ position: "relative" }}>
-                  <span className="status-circle-orders"></span>{item.title}
+                  <span className="status-circle-orders"></span>
+                  {item.title}
                 </h3>
               </div>
               <div>

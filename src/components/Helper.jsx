@@ -15,7 +15,11 @@ function Helper() {
   return (
     <div>
       {" "}
-      <Button className="help-dropdown" onClick={handleShow} style={{marginRight:"15px"}}>
+      <Button
+        className="help-dropdown"
+        onClick={handleShow}
+        style={{ marginRight: "15px" }}
+      >
         <i className="sicon-life-ring mx-1"></i>
         المساعدة
         <i className="mx-2" style={{ color: "white" }}>
@@ -37,13 +41,20 @@ function Helper() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            backgroundColor: "#77c1e3",
+            backgroundColor: "#a6abc8",
           }}
         >
           <Modal.Title>المقالات</Modal.Title>
-          <span onClick={toggleSize} className="toggle-btn" style={{display:"flex"}}>
-            <div>  {isLarge ? " تصغير" : "تكبير"}</div>
-            <div> <FaExpandArrowsAlt className="mx-2" /> </div>
+          <span
+            onClick={toggleSize}
+            className="toggle-btn"
+            style={{ display: "flex" }}
+          >
+            <div> {isLarge ? " تصغير" : "تكبير"}</div>
+            <div>
+              {" "}
+              <FaExpandArrowsAlt className="mx-2" />{" "}
+            </div>
           </span>
         </Modal.Header>
         <Modal.Body
@@ -55,7 +66,7 @@ function Helper() {
               type="text"
               className="form-control"
               placeholder="بحث عن ما تريد....."
-              style={{margin:"auto auto" , marginBottom: "15px"}}
+              style={{ margin: "auto auto", marginBottom: "15px" }}
             />
             <Accordion defaultActiveKey="0" className="custom-accordion">
               <Accordion.Item eventKey="">

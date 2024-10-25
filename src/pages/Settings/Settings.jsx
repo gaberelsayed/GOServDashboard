@@ -15,8 +15,21 @@ export default function Settings({ darkMode, setDarkMode }) {
       >
         <Sidebar />
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Helper />
-        <main className="mx-6 mt-28 w-full overflow-x-hidden mb-4 ">
+        <main
+          className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
+          style={{
+            flexGrow: 2,
+            marginTop: "116px",
+            // padding: "0 40px 60px",
+            height: "100%",
+            width: "calc(100% - 260px)",
+            minHeight: "100vh",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            overflowX: "hidden",
+          }}
+        >
           <HeaderComponent label="إعدادات المتجر" />
           <div className="mx-4 whitespace-nowrap">
             <h1>إعدادات المتجر</h1>

@@ -36,7 +36,7 @@ const Sidebar = () => {
           top: "10px",
           right: "10px", // Adjust the button position based on the sidebar state
           zIndex: 100000000000,
-          background: "#00414d",
+          background: "#57578e",
           color: "#fff",
           padding: "6px",
           borderRadius: "50%",
@@ -54,8 +54,10 @@ const Sidebar = () => {
           width: isOpen ? "260px" : "0",
           minHeight: "calc(100vh - 56px)",
           marginTop: "56px",
-          backgroundColor: "#77c1e3",
-          overflowY: "auto",
+          backgroundColor: "#f1f2f7 ",
+          overflowY: "scroll",
+          height: "600px",
+          position: "fixed",
         }}
       >
         <div className="sidebarLogo ">
@@ -105,7 +107,7 @@ const Sidebar = () => {
         <p className="text-center ">متجر الهدايا</p>
         <div
           style={{
-            border: "1px solid #baf3e6",
+            border: "1px solid #57578e",
             borderRadius: "25px",
             width: "fit-content",
             fontSize: "14px",
@@ -134,12 +136,14 @@ const Sidebar = () => {
 
           <button
             style={{
-              backgroundColor: "#baf3e6",
+              backgroundColor: "#57578e",
               height: "30.6px",
               padding: "4px 12px",
-              color: "#003c47",
+              color: "#a6abc8",
               fontSize: "13px",
               fontWeight: 600,
+              borderRadius: "25px",
+              marginLeft: "0",
             }}
           >
             <CiShare2 />
@@ -201,7 +205,7 @@ const Sidebar = () => {
             <a
               href="#f"
               style={{
-                color: "#1e90ff",
+                color: "#a6abc8",
                 fontWeight: "600",
               }}
             >
@@ -220,7 +224,7 @@ const Sidebar = () => {
             <a
               href="#f"
               style={{
-                color: "#1e90ff",
+                color: "#a6abc8",
                 fontWeight: "600",
               }}
             >
@@ -228,22 +232,22 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/experts" className="sidebarLink ">
               <i class="sicon-briefcase"></i>
               خدمات التاجر{" "}
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/influencers" className="sidebarLink ">
               <i class="sicon-user-list"></i>
               المؤثرين{" "}
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/swelly" className="sidebarLink ">
               <TbSpeakerphone />
               اعلانات سويبلي
-            </a>
+            </Link>
           </li>
 
           {/* اعدادات */}
@@ -251,7 +255,7 @@ const Sidebar = () => {
             <a
               href="#f"
               style={{
-                color: "#1e90ff",
+                color: "#a6abc8",
                 fontWeight: "600",
               }}
             >
@@ -259,22 +263,22 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/marketPlace" className="sidebarLink ">
               <i class="sicon-store"></i>
               باقة المتجر
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/settings" className="sidebarLink ">
               <i class="sicon-settings"></i>
               اعدادات المتجر
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/wallet" className="sidebarLink ">
               <i class="sicon-wallet"></i>
               المحفظة والفواتير
-            </a>
+            </Link>
           </li>
 
           {/* مظهر المنتج */}
@@ -282,7 +286,7 @@ const Sidebar = () => {
             <a
               href="#f"
               style={{
-                color: "#1e90ff",
+                color: "#a6abc8",
                 fontWeight: "600",
               }}
             >
@@ -290,21 +294,15 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/themes" className="sidebarLink ">
               <i class="sicon-store"></i>
               متجر الثيمات
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
               <i class="sicon-window-layout"></i>
               تصميم المتجر
-            </a>
-          </li>
-          <li>
-            <a href="#" className="sidebarLink ">
-              <i class="sicon-iphone"></i>
-              صانع التطبيقات
             </a>
           </li>
         </ul>

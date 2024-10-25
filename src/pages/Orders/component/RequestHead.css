@@ -1,9 +1,9 @@
-.header-container-orders-head{
+.header-container-orders-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:98% !important;
-  margin-top:-30px !important;
+  width: 98% !important;
+  margin-top: -30px !important;
 }
 
 .header-left {
@@ -17,7 +17,6 @@
 .btn-add-product {
   margin-right: 15px;
   border: none !important;
-
 }
 
 .btn-services,
@@ -28,9 +27,8 @@
   background-color: transparent !important;
 }
 
-
-.btn-add-order{
-  background-color:#77c1e3 !important;
+.btn-add-order {
+  background-color: #a6abc8 !important;
   border-radius: 20px !important;
   color: #fff !important;
   border-color: #b2cdf4 !important;
@@ -38,14 +36,16 @@
 .icon-plus {
   font-size: 15px !important;
   color: blue;
-  margin-left:0 !important;
+  margin-left: 0 !important;
 }
 
-.icon-toolbox,.icon-filter,.icon-calender{
+.icon-toolbox,
+.icon-filter,
+.icon-calender {
   font-size: 20px !important;
 }
-.icon-calender{
- margin: 0 5px;
+.icon-calender {
+  margin: 0 5px;
 }
 
 .btn-add-product:hover {
@@ -93,7 +93,7 @@
   background-color: #f0f0f0;
 }
 
-.left-aligned-service-request{
+.left-aligned-service-request {
   position: absolute !important;
   left: 20px !important;
   top: 170px !important;
@@ -169,29 +169,12 @@
 .dropdown-export-content p:hover {
   background-color: #f0f0f0;
 }
-@media (min-width:1800px){
-  .header-container-orders-head{
+@media (min-width: 1800px) {
+  .header-container-orders-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:96% !important;
-    margin-top:-130px !important;
+    width: 96% !important;
+    margin-top: -130px !important;
   }
-  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

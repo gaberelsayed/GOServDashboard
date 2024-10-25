@@ -1,16 +1,15 @@
 .client-groups-container {
-  width:70vw !important;
-  height:270px;
-  padding:0;
-  margin-top:15px !important;
-  margin-left:370px !important;
+  height: 270px;
+  padding: 0;
+  margin-top: 80px !important;
 }
 
-.client-card-container{
+.client-card-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.client-card  {
+.client-card {
   flex: 1;
   margin: 0 10px;
   padding: 30px;
@@ -21,17 +20,16 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
   cursor: pointer;
-  width:200px !important;
+  width: 200px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  
 }
 .client-icon {
   font-size: 36px;
   color: #5587e2;
   margin: auto auto;
-  margin-top:5px;
+  margin-top: 5px;
 }
-.client-sicon{
+.client-sicon {
   font-size: 39px;
   color: #5587e2;
   margin: auto auto;
@@ -39,15 +37,15 @@
 
 .client-card h5 {
   font-size: 19px;
-  margin-top:0;
+  margin-top: 0;
   color: #555;
-  text-align:center !important;
+  text-align: center !important;
 }
 .client-card p {
   font-size: 15px;
   color: #bbbb;
-  text-align:center !important;
+  text-align: center !important;
 }
-.client-new-group h6{
-  margin-top:12px;
+.client-new-group h6 {
+  margin-top: 12px;
 }

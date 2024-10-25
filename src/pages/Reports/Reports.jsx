@@ -4,8 +4,8 @@ import "./Reports.css";
 
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
-import HeaderComponent from './components/HeaderComponent';
-import ReportHeader from './components/ReportHeader';
+import HeaderComponent from "./components/HeaderComponent";
+import ReportHeader from "./components/ReportHeader";
 import ReportSelector from "./components/ReportSelector";
 import ReportCards from "./components/ReportCards";
 function Reports({ darkMode, setDarkMode }) {
@@ -30,10 +30,9 @@ function Reports({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
-        <HeaderComponent/>
-        <ReportHeader/>
+        <ReportHeader />
         <ReportSelector />
-        <ReportCards/>
+        <ReportCards />
       </main>
     </div>
   );

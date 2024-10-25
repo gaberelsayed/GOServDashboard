@@ -30,7 +30,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         className="w-full lg:w-64 bg:white flex justify-center lg:block "
         style={{
           height: "100%",
-          backgroundColor: "#77c1e3",
+          backgroundColor: "#f1f2f7",
           padding: "5px 0",
           paddingRight: "18px",
         }}
@@ -78,7 +78,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <button
             className="flex items-center justify-center"
             style={{
-              backgroundColor: "#77c1e3",
+              backgroundColor: "#f1f2f7",
               height: "38px",
               width: "48px",
             }}
@@ -92,7 +92,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <button
               className="hidden lg:flex"
               style={{
-                border: "1px solid #77c1e3",
+                border: "1px solid #a6abc8",
                 borderRadius: "50%",
                 cursor: "pointer",
                 width: "38px",
@@ -110,7 +110,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               className="mx-1 lg:mx-0"
               style={{
                 backgroundColor: darkMode ? "#baf3e6" : "#fcfcfc",
-                border: "1px solid #77c1e3",
+                border: "1px solid #a6abc8",
                 color: "black",
                 borderRadius: "50%",
                 cursor: "pointer",

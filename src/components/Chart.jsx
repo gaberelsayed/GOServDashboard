@@ -31,7 +31,7 @@ const LineChart = () => {
         data: [65, 59, 80, 91, 56, 30], // Y-axis data points
         fill: false,
         backgroundColor: "#fff", // Color of the points
-        borderColor: "#003c47", // Color of the line
+        borderColor: "white", // Color of the line
         tension: 0.1, // Curvature of the line
       },
     ],
@@ -57,7 +57,7 @@ const LineChart = () => {
         overflow: "hidden",
         // width: "50%",
         maxHeight: "300px",
-        backgroundColor: "#77c1e3",
+        backgroundColor: "#a6abc8",
         display: "flex",
         alignItems: "center",
         borderBottomLeftRadius: "8px",

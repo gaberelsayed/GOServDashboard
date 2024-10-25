@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 import { FaRegEye, FaStar } from "react-icons/fa6";
 import { Navigation, Pagination, Zoom } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import tamara from './../../../assets/tamara.png';
-import './style.css';
+import tamara from "./../../../assets/tamara.png";
+import "./style.css";
 export default function Suggestion() {
-    return <>
-        <suggestion>
+  return (
+    <>
+      {/* <suggestion>
 
             <Swiper
 
@@ -144,6 +145,7 @@ export default function Suggestion() {
                     </div>
                 </SwiperSlide>
             </Swiper>
-        </suggestion>
+        </suggestion> */}
     </>
+  );
 }

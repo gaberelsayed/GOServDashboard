@@ -23,82 +23,80 @@ const ProductsPage = (props) => {
       imageUrl:
         "https://cdn.assets.salla.network/prod/admin/cp/assets/images/placeholder.png",
       price: "120",
-      Prductname:"netflix",
-      placeholder:"منتج رقمي - ادخل اسم المنتج",
-      newprd:false,
+      Prductname: "netflix",
+      placeholder: "منتج رقمي - ادخل اسم المنتج",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/4ioBtAzqiI02qmDCocNVOOEGxBZuqwmaKud2wLdm.jpg",
       price: "120",
-      Prductname:"طباعة علي الملابس",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "طباعة علي الملابس",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/7CsgOx4DC34rcY5mPlqKjZIsaCYDRqYbGDZcmZOF.png",
       price: "150",
-      Prductname:"طباعة علي الحقائب",
-      placeholder:"",
-      newprd:false,
+      Prductname: "طباعة علي الحقائب",
+      placeholder: "",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/7MB6vrvhhdzT5d50ZWeXircnJxR0oQbv8MHR9pRW.jpg",
       price: "120",
-      Prductname:"طباعة علي الكوب",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "طباعة علي الكوب",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/7m9WvWv1M9RFu3ehPgx3dKAYz8UnnsjDsHNiKIiG.jpg",
       price: "150",
-      Prductname:"عطر العود",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "عطر العود",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/61f14335-c5de-483c-8d5f-3ed64074cf17-500x500-ow7PEdvPbvenlyyI1PkU37w2WdsrONvcS1vhfGsW.jpg",
       price: "120",
-      Prductname:"عطر الخوخ",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "عطر الخوخ",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/D5QVPx3cjw7ksoQIfTowAiVZZeBYqHFKJb8nVsUl.jpg",
       price: "150",
-      Prductname:"عطر التوليب",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "عطر التوليب",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/PkSe9oUyRBb34Xv2cA5aFmlzKSfzv5pRIC3cZqFo.jpg",
       price: "150",
-      Prductname:"عطر الموسم",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "عطر الموسم",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
     {
       imageUrl:
         "https://cdn.salla.sa/EZZNYp/Sb0dzSc2XzBDJdCHZP6oDe3VdhdvjBBv3d080HEa.png",
       price: "150",
-      Prductname:"اشتراك توصيل ورد ",
-      placeholder:"خدمة حسب الطلب",
-      newprd:false,
+      Prductname: "اشتراك توصيل ورد ",
+      placeholder: "خدمة حسب الطلب",
+      newprd: false,
     },
   ]);
   const addNewProduct = (newProduct) => {
-    setProducts((prevProducts) => [newProduct, ...prevProducts]); 
+    setProducts((prevProducts) => [newProduct, ...prevProducts]);
   };
   const deleteProduct = (index) => {
-    setProducts((prevProducts) =>
-      prevProducts.filter((_, i) => i !== index)
-    );
+    setProducts((prevProducts) => prevProducts.filter((_, i) => i !== index));
   };
 
   return (
@@ -124,13 +122,23 @@ const ProductsPage = (props) => {
       >
         <div className="headerComponent">
           <HeaderComponent />
-           <ProductHead
+          <ProductHead
             showProductList={showProductList}
             hideProductList={hideProductList}
-            addNewProduct={addNewProduct} 
+            addNewProduct={addNewProduct}
           />
-          {isProductListVisible ? <ProductList  products={products}  onDelete={(index) => deleteProduct(index)}/> : <ProductListRow  products={products}  onDelete={(index) => deleteProduct(index)}/>}
-        </div> 
+          {isProductListVisible ? (
+            <ProductList
+              products={products}
+              onDelete={(index) => deleteProduct(index)}
+            />
+          ) : (
+            <ProductListRow
+              products={products}
+              onDelete={(index) => deleteProduct(index)}
+            />
+          )}
+        </div>
       </main>
     </div>
   );

@@ -53,11 +53,9 @@ const Sidebar = () => {
         style={{
           width: isOpen ? "260px" : "0",
           minHeight: "calc(100vh - 56px)",
-          height: "800px",
-          maxHeight: "100%",
           marginTop: "56px",
           backgroundColor: "#77c1e3",
-          overflowY: "scroll",
+          overflowY: "auto",
         }}
       >
         <div className="sidebarLogo ">
@@ -216,12 +214,7 @@ const Sidebar = () => {
               محلي
             </Link>
           </li>
-          <li>
-            <a href="#" className="sidebarLink ">
-              <i class="sicon-pos"></i>
-              سلة بوينت
-            </a>
-          </li>
+
           {/* ادوات مسانده */}
           <li className="mt-8 navHeader">
             <a
@@ -236,23 +229,23 @@ const Sidebar = () => {
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              <TbSpeakerphone />
-              الأدوات التسويقية
+              <i class="sicon-briefcase"></i>
+              خدمات التاجر{" "}
             </a>
           </li>
-          
-          <li>
-            <Link to="/influencers" className="sidebarLink ">
-              <TbSpeakerphone />
-                 الموثرين
-            </Link>
-          </li>
-
           <li>
             <a href="#" className="sidebarLink ">
-              الأدوات التسويقية
+              <i class="sicon-user-list"></i>
+              المؤثرين{" "}
             </a>
           </li>
+          <li>
+            <a href="#" className="sidebarLink ">
+              <TbSpeakerphone />
+              اعلانات سويبلي
+            </a>
+          </li>
+
           {/* اعدادات */}
           <li className="mt-8 navHeader">
             <a
@@ -262,21 +255,27 @@ const Sidebar = () => {
                 fontWeight: "600",
               }}
             >
-              قنوات البيع
+              الاعدادات{" "}
             </a>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              <TbSpeakerphone />
-              الأدوات التسويقية
+              <i class="sicon-store"></i>
+              باقة المتجر
             </a>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              الأدوات التسويقية
+              <i class="sicon-settings"></i>
+              اعدادات المتجر
             </a>
           </li>
-
+          <li>
+            <a href="#" className="sidebarLink ">
+              <i class="sicon-wallet"></i>
+              المحفظة والفواتير
+            </a>
+          </li>
 
           {/* مظهر المنتج */}
           <li className="mt-8 navHeader">
@@ -287,41 +286,25 @@ const Sidebar = () => {
                 fontWeight: "600",
               }}
             >
-              قنوات البيع
+              مظهر المتجر
             </a>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              <TbSpeakerphone />
-              الأدوات التسويقية
+              <i class="sicon-store"></i>
+              متجر الثيمات
             </a>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              الأدوات التسويقية
-            </a>
-          </li>
-          {/* متجر التطبيقات */}
-          <li className="mt-8 navHeader">
-            <a
-              href="#f"
-              style={{
-                color: "#1e90ff",
-                fontWeight: "600",
-              }}
-            >
-              قنوات البيع
+              <i class="sicon-window-layout"></i>
+              تصميم المتجر
             </a>
           </li>
           <li>
             <a href="#" className="sidebarLink ">
-              <TbSpeakerphone />
-              الأدوات التسويقية
-            </a>
-          </li>
-          <li>
-            <a href="#" className="sidebarLink ">
-              الأدوات التسويقية
+              <i class="sicon-iphone"></i>
+              صانع التطبيقات
             </a>
           </li>
         </ul>

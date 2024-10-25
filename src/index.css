@@ -538,3 +538,23 @@ aside ul li>div span {
     max-width: 100% !important;
   }
 }
+
+
+.themeimg {
+  position: relative;
+  z-index: 4;
+}
+
+.themeimg::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('https://cdn.salla.network/images/logo/logo.svg');
+  opacity: 0.1;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 40%;
+}

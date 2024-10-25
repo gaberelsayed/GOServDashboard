@@ -13,6 +13,11 @@ import Feedback from './pages/Feedback/Feedback';
 import ProfilePage from "./pages/Profilepage/Profilepage";
 import Settings from "./pages/Settings/Settings";
 import Wallet from "./pages/Wallet/Wallet";
+import Influencers from "./pages/Influencers/Influencers";
+import Sweply from "./pages/Sweply/Sweply";
+import Marketplace from "./pages/Marketplace/Marketplace";
+import Mobile from "./pages/Mobile/Mobile";
+import Themes from "./pages/Themes/Themes";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -65,6 +70,26 @@ function App() {
         <Route
           path="/wallet"
           element={<Wallet darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/influencers"
+          element={<Influencers darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/sweply"
+          element={<Sweply darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/marketplace"
+          element={<Marketplace darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/mobile-app"
+          element={<Mobile darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />
+        <Route
+          path="/matketplace/themes"
+          element={<Themes darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
         <Route
           path="*"

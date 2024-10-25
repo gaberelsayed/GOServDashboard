@@ -304,7 +304,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/marketplacethemes" className="sidebarLink ">
+            <Link to="/matketplace/themes" className="sidebarLink ">
               <IoLibraryOutline />
               تصميم المتجر
             </Link>

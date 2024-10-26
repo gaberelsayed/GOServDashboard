@@ -17,7 +17,7 @@ const Influencers = ({ darkMode, setDarkMode }) => {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "116px",
+          marginTop: "75px",
           // padding: "0 40px 60px",
           height: "100%",
           width: "calc(100% - 260px)",

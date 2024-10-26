@@ -25,7 +25,7 @@ const SwiperComponent = () => {
 
   return (
     <>
-          <Swiper
+    <Swiper
       spaceBetween={30}
       slidesPerView="auto"
       loop={true}

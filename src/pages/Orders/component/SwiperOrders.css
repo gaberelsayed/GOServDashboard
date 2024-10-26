@@ -9,7 +9,7 @@
     border:1px solid #dddddd;
     height: 120px;
     margin:0 8px;
-    width:12.4vw !important;
+    width:14vw !important;
   }
   
   .swiper-item-orders :hover {
@@ -63,7 +63,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right:98px;
+    margin-right:125px;
   }
   
   .icons-item-class-orders  {
@@ -108,24 +108,12 @@
     align-items:center;
     justify-content:center;
   }
-  @media(min-width:1500){
-    .swiper-item-orders {
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s;
-      background-color: #e8f1f129; 
-      margin: 0 3px; 
-      position:relative;
-      border:1px solid #dddddd;
-      margin:0 8px;
-      width:13vw !important;
-    }
+  @media(min-width:1500px){
     .fa-times-icon-orders  {
-      margin-right:92px !important;
+      margin-right:140px !important;
     }    
   }
-  @media(min-width:1600){
+  @media(min-width:1700px){
     .swiper-item-orders  {
       border-radius: 8px;
       padding: 50px;
@@ -136,11 +124,30 @@
       width: 215px !important;
       position: relative;
       border: 1px solid #dddddd;
-      height: 130px;
+      height: 150px;
       margin:0 8px;
-      width:16vw !important;
+      width:14.5vw !important;
     }
     .fa-times-icon-orders  {
-      margin-right:192px !important;
+      margin-right:190px !important;
     }  
   }
+@media(min-width:1850px){
+  .swiper-item-orders  {
+    border-radius: 8px;
+    padding: 50px;
+    text-align: center;
+    transition: transform 0.3s;
+    background-color: #e8f1f129;
+    margin: 0 3px;
+    width: 215px !important;
+    position: relative;
+    border: 1px solid #dddddd;
+    height: 150px;
+    margin:0 8px;
+    width:15vw !important;
+  }
+  .fa-times-icon-orders  {
+    margin-right:220px !important;
+  } 
+}

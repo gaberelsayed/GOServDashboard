@@ -20,7 +20,7 @@ function Clients({ darkMode, setDarkMode }) {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "90px",
+          marginTop: "75px",
           height: "100%",
           // width: "calc(100% - 260px)",
           minHeight: "100vh",
@@ -29,8 +29,8 @@ function Clients({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
-        <HeaderComponent style={{ marginBottom: "5px" }} />
-        <ClientGroups style={{ width: "98%", marginTop: "5px" }} />
+        <HeaderComponent/>
+        <ClientGroups style={{ width: "98%"}} />
         <ClientHead style={{ width: "100%" }} />
         <CustomerList />
       </main>

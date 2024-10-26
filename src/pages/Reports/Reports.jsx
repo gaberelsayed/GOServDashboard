@@ -21,7 +21,7 @@ function Reports({ darkMode, setDarkMode }) {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "40px",
+          marginTop: "75px",
           height: "100%",
           width: "calc(100% - 260px)",
           minHeight: "100vh",
@@ -30,6 +30,7 @@ function Reports({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
+        <HeaderComponent/>
         <ReportHeader />
         <ReportSelector />
         <ReportCards />

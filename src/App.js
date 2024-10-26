@@ -17,6 +17,8 @@ import ProfilePage from "./pages/Profilepage/Profilepage";
 import Wallet from "./pages/Wallet/Wallet";
 import NotFound from "./pages/NotFound/NotFound";
 import Themes from "./pages/Themes/Themes";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Notifications from "./pages/Notifications/Notifications";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -88,6 +90,14 @@ function App() {
           path="/themes"
           element={<Themes darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
+          <Route
+          path="/userProfile"
+          element={<UserProfile darkMode={darkMode} setDarkMode={setDarkMode} />}
+        />    
+        <Route
+         path="/notifications"
+         element={<Notifications darkMode={darkMode} setDarkMode={setDarkMode} />}
+       />
         <Route
           path="*"
           element={<NotFound darkMode={darkMode} setDarkMode={setDarkMode} />}

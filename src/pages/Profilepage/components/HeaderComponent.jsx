@@ -13,10 +13,10 @@ const HeaderComponent = () => {
               width:"100%",
             }}
           >
-            <div className="nav-items-clients">
-                <FaHome className="nav-icon-clients" />
-                <span className="nav-item-home-clients">الرئيسية</span>
-                <span className="nav-item-clients">/ العملاء</span>
+            <div className="nav-items-profilepage">
+                <FaHome className="nav-icon-profilepage" />
+                <span className="nav-item-home-profilepage">الرئيسية</span>
+                <span className="nav-item-profilepage">/ الصفحات التعريفية</span>
               </div>
             <div>
               < HelpModal/>

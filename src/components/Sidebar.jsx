@@ -189,10 +189,10 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/profile" className="sidebarLink ">
               <LuNewspaper />
               الصفحات التعريفية
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" className="sidebarLink ">

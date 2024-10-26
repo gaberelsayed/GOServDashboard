@@ -31,7 +31,7 @@ function Orders({ darkMode, setDarkMode }) {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "0px",
+          marginTop: "50px",
           height: "100%",
           width: "calc(100% - 260px)",
           minHeight: "100vh",
@@ -41,6 +41,7 @@ function Orders({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
+        <HeaderComponent/>
         <RequestHead />
         <Swiper
           selectedIndex={selectedIndex}

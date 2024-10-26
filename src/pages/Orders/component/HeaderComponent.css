@@ -1,20 +1,12 @@
-.header-container-orders-comp {
-  display: flex !important;
-  justify-content: space-between;
-  margin-right: -100px !important;
-}
-
 .nav-items-orders {
   display: flex;
   align-items: center;
   font-size: 16px;
   color: gray;
-  margin-top: 50px !important;
-  margin-left: 780px !important;
 }
 
 .nav-item-orders,
-.nav-item-home-orders {
+.nav-item-home-orders{
   margin: 0 5px;
 }
 .nav-icon-orders {
@@ -23,15 +15,5 @@
 }
 .nav-item-home-orders,
 .nav-icon-orders {
-  color: #a6abc8;
-}
-@media (min-width: 1800px) {
-  .nav-items-orders {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    color: gray;
-    margin-top: 7px !important;
-    margin-left: 1430px !important;
-  }
+  color: #a6abc8 !important;
 }

@@ -10,6 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "./SwiperOrders.css";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css/pagination"; 
+
 
 const SwiperOrders = ({ onCardClick, selectedIndex }) => {
   const Orderdata = [
@@ -82,11 +85,16 @@ const SwiperOrders = ({ onCardClick, selectedIndex }) => {
   ];
 
   return (
-    <Swiper
-      spaceBetween={10}
-      slidesPerView={6}
-      loop={true}
-      onSlideChange={(swiper) => onCardClick(swiper.activeIndex)}
+  <Swiper
+    spaceBetween={0}
+    slidesPerView={5}
+    loop={true}
+    pagination={{
+      clickable: true,
+    }}
+    className="mySwiper"
+    grabCursor={true}
+    onSlideChange={(swiper) => onCardClick(swiper.activeIndex)}
     >
       {Orderdata.map((item, index) => (
         <SwiperSlide key={index}>

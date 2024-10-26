@@ -5,18 +5,38 @@ import Button from "react-bootstrap/Button";
 import { FaExpandArrowsAlt } from "react-icons/fa";
 import "./HelpModal.css";
 
-const HelpModal = ({showModal, handleClose}) => {
+const HelpModal = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
   const [isLarge, setIsLarge] = useState(false);
   const toggleSize = () => setIsLarge((prev) => !prev);
   return (
-    <Modal
+    <>
+      <Button
+        className="help-dropdown"
+        onClick={handleShow}
+        style={{ marginRight: "15px" }}
+      >
+        <i className="sicon-life-ring mx-1"></i>
+        المساعدة
+        <i className="mx-2" style={{ color: "white" }}>
+          {showModal ? (
+            <i className="sicon-keyboard_arrow_down"></i>
+          ) : (
+            <i className="sicon-keyboard_arrow_up"></i>
+          )}
+        </i>
+      </Button>
+      <Modal
       show={showModal}
       onHide={handleClose}
       dialogClassName={`left-alignedHelp-modal ${
         isLarge ? "modal-large" : "modal-small"
       }`}
     >
-      <Modal.Header style={{backgroundColor:"#77c1e3"}}>
+      <Modal.Header style={{backgroundColor:"rgb(166, 171, 200)"}}>
         <Modal.Title>المقالات</Modal.Title>
         <button onClick={toggleSize} className="toggle-btn">
           <FaExpandArrowsAlt className="mx-2" />
@@ -167,6 +187,8 @@ const HelpModal = ({showModal, handleClose}) => {
         </div>
       </Modal.Body>
     </Modal>
+    </>
+  
   );
 };
 

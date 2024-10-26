@@ -56,10 +56,34 @@
   cursor: pointer;
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1850px) {
   .card-grid-influencers {
     display: grid;
     grid-template-columns: repeat(3, minmax(550px, 1fr));
+    gap: 10px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1800px) and (max-width:1850px){
+  .card-grid-influencers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(480px, 1fr)) !important;
+    gap: 10px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1700px) and (max-width: 1800px) {
+  .card-grid-influencers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(430px, 1fr)) !important;
+    gap: 10px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1500px) and (max-width: 1700px){
+  .card-grid-influencers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(380px, 1fr));
     gap: 10px;
     padding: 20px;
   }

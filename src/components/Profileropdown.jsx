@@ -7,6 +7,7 @@ import { MdCelebration } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { HiOutlineMoon } from "react-icons/hi2";
 import { GoGift } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Profileropdown = ({ setDarkMode }) => {
   const [visible, setVisible] = useState(false);
@@ -32,16 +33,16 @@ const Profileropdown = ({ setDarkMode }) => {
       {visible && (
         <ul className="profileDropdown">
           <li>
-            <a href="#">
+            <Link to="/userProfile">
               <FiUser />
               الملف الشخصي{" "}
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="/notifications">
               <TbNotification />
               التنبيهات
-            </a>
+            </Link>
           </li>
 
           <li className="highlight">

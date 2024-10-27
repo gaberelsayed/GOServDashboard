@@ -183,10 +183,10 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/feedback" className="sidebarLink ">
               <TbMessageQuestion />
               الأسئلة والتقييمات
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/profile" className="sidebarLink ">
@@ -195,10 +195,10 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="sidebarLink ">
+            <Link to="/marketing" className="sidebarLink ">
               <TbSpeakerphone />
               الأدوات التسويقية
-            </a>
+            </Link>
           </li>
           {/* navigation headers */}
           <li className="mt-8 navHeader">

@@ -4,12 +4,11 @@
     text-align: center;
     transition: transform 0.3s;
     background-color: #e8f1f129; 
-    margin: 0 3px; 
     position:relative;
     border:1px solid #dddddd;
-    height: 120px;
-    margin:0 8px;
-    width:14vw !important;
+    margin:20px 8px;
+    width:13.9vw !important;
+    width:100%;
   }
   
   .swiper-item-orders :hover {
@@ -120,12 +119,11 @@
       text-align: center;
       transition: transform 0.3s;
       background-color: #e8f1f129;
-      margin: 0 3px;
       width: 215px !important;
       position: relative;
       border: 1px solid #dddddd;
       height: 150px;
-      margin:0 8px;
+      margin:20px 8px;
       width:14.5vw !important;
     }
     .fa-times-icon-orders  {
@@ -139,12 +137,11 @@
     text-align: center;
     transition: transform 0.3s;
     background-color: #e8f1f129;
-    margin: 0 3px;
     width: 215px !important;
     position: relative;
     border: 1px solid #dddddd;
     height: 150px;
-    margin:0 8px;
+    margin:20px 8px;
     width:15vw !important;
   }
   .fa-times-icon-orders  {

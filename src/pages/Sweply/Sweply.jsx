@@ -3,10 +3,10 @@ import { Dropdown } from "react-bootstrap";
 import { BsSnapchat } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { FiTv } from "react-icons/fi";
-import Helper from "../../components/Helper";
+// import Helper from "../../components/Helper";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import HeaderComponent from "../Products/component/HeaderComponent";
+import HeaderComponent from "./component/HeaderComponent";
 import { IoSettingsOutline } from "react-icons/io5";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import social from "./../../assets/social.png";
@@ -24,7 +24,7 @@ export default function Sweply({ darkMode, setDarkMode }) {
           className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
           style={{
             flexGrow: 2,
-            marginTop: "116px",
+            marginTop: "80px",
             // padding: "0 40px 60px",
             height: "100%",
             width: "calc(100% - 260px)",
@@ -35,9 +35,10 @@ export default function Sweply({ darkMode, setDarkMode }) {
             overflowX: "hidden",
           }}
         >
-          <HeaderComponent label=" إعلانات سويبلي" />
+        
           <div className="mx-4 w-full">
-            <div className="flex flex-row justify-between w-full p-1 items-center">
+            <HeaderComponent/>
+            <div className="flex flex-row justify-between w-full p-1 mt-2 items-center">
               <Dropdown className="text-center " dir="rtl">
                 <Dropdown.Toggle
                   className="text-black hover:bg-green-300 focus:bg-green-400 flex flow-row items-center gap-2 border  rounded-pill bg-green-200"

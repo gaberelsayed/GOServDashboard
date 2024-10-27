@@ -31,7 +31,7 @@ function Orders({ darkMode, setDarkMode }) {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "50px",
+          marginTop: "80px",
           height: "100%",
           width: "calc(100% - 260px)",
           minHeight: "100vh",
@@ -41,14 +41,15 @@ function Orders({ darkMode, setDarkMode }) {
           justifyContent: "space-around",
         }}
       >
+        <div style={{width:"98%"}}>
         <HeaderComponent/>
-        <RequestHead />
+         <RequestHead />
         <Swiper
           selectedIndex={selectedIndex}
           onCardClick={handleCardClick}
-          style={{ width: "100%" }}
-        />
+        /> 
         <OrderSummary selectedIndex={selectedIndex} showDetails={showDetails} />
+        </div>
       </main>
     </div>
   );

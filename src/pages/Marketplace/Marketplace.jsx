@@ -11,7 +11,7 @@ import {
 import Helper from "../../components/Helper";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import HeaderComponent from "../Products/component/HeaderComponent";
+import HeaderComponent from "./component/HeaderComponent";
 import sallastar from "./../../assets/sallastar.png";
 
 export default function Marketplace({ darkMode, setDarkMode }) {
@@ -27,7 +27,7 @@ export default function Marketplace({ darkMode, setDarkMode }) {
           className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
           style={{
             flexGrow: 2,
-            marginTop: "116px",
+            marginTop: "80px",
             // padding: "0 40px 60px",
             height: "100%",
             width: "calc(100% - 260px)",
@@ -39,6 +39,7 @@ export default function Marketplace({ darkMode, setDarkMode }) {
           }}
         >
           <div className=" w-full">
+            <HeaderComponent />
             <div className="flex flex-row justify-center items-center p-2 border rounded-md w-[80%]  m-auto my-4">
               <div className="flex flex-col items-center gap-2 border-e-2 p-6 w-full">
                 <figure>

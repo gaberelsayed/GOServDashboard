@@ -26,9 +26,11 @@ const ProductFormContainer = styled.div`
   padding: 5px;
   background-color: #fff;
   border-radius: 10px;
-  width: 100%;
-  max-width: 1600px;
+  width: 98%;
+  border: 1px solid #ccc;
+  // max-width: 1600px;
   margin: 0 auto;
+  overflow:-xhidden;
 `;
 
 const Row = styled.div`
@@ -99,7 +101,7 @@ const ProductsRow = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
 
   return (
     <ProductFormContainer
-      style={{ marginBottom: "2px" }}
+      style={{ marginBottom: "20px" }}
       className="RowHeadClass"
     >
       <Row className="RowFlex">

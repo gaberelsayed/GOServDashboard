@@ -4,7 +4,8 @@
   align-items: center;
   padding: 10px 20px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 98%;
+  margin:auto auto;
 }
 
 .header-left {
@@ -412,13 +413,6 @@
 .ready-product-card.selected {
   border-color: #a6abc8;
 }
-
-@media (max-width: 1200px) {
-  .header-container {
-    display: none;
-  }
-}
-
 @media (width: 1700px) {
   .btn-newadd-product {
     padding: none;

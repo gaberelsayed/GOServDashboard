@@ -33,23 +33,23 @@ const CustomerGroups = () => {
         <>
             <div className="customer-groups-container">
                 <h4 style={{marginBottom:"25px"}}><i className="sicon-group mx-2" style={{fontSize:"25px"}}></i>مجموعات العملاء <span>(2 مجموعات)</span></h4>
-                <div className="card-container">
-                    <div className="card all-customers" onClick={handleCustomerModalShow} >
-                        <i className="sicon-group sicon"></i>
+                <div className="customer-card-container">
+                    <div className="customer-card all-customers" onClick={handleCustomerModalShow} >
+                        <i className="sicon-group sicon-customer"></i>
                         <div style={{ marginTop: "15px" }}>
                             <h5>جميع العملاء</h5>
                             <p style={{marginRight:"50px"}}>91 عميل</p>
                         </div>
                     </div>
-                    <div className="card order-group">
-                        <i className="sicon-users sicon"></i>
+                    <div className="customer-card order-group">
+                        <i className="sicon-users sicon-customer"></i>
                         <div style={{ marginTop: "15px"}}>
                             <h5 style={{}}>اول طلب</h5>
                             <p style={{marginRight:"50px"}}>85 عميل</p>
                         </div>
                     </div>
-                    <div className="card new-group">
-                        <FaPlus className="icon" />
+                    <div className="customer-card new-group">
+                        <FaPlus className="icon-customer" />
                         <h5>مجموعة جديدة</h5>
                     </div>
                 </div>

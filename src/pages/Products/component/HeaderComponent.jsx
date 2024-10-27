@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import "./HeaderComponent.css";
-import HelpModal from "./modalsProduct/HelpModal";
 import { FaHome } from "react-icons/fa";
-import Button from "react-bootstrap/Button";
-import Helper from "../../../components/Helper";
-
+import HelpModal from "./modalsProduct/helper/HelpModal";
+import "./HeaderComponent.css";
 const HeaderComponent = () => {
   return (
     <>
-      <div className="header-container-prd">
-        <div className="nav-items">
-          <FaHome className="nav-icon" />
-          <span className="nav-item-home">الرئيسية</span>
-          <span className="nav-item">/ المنتجات</span>
+      <div
+            style={{
+              display:"flex",
+              justifyContent:"space-between",
+              marginBottom:"3px",
+              width:"100%",
+            }}
+          >
+            <div className="nav-items-products">
+                <FaHome className="nav-icon-products" />
+                <span className="nav-item-home-products">الرئيسية</span>
+                <span className="nav-item-products">/ المنتجات</span>
+              </div>
+            <div>
+              < HelpModal/>
+            </div>
         </div>
-        <div
-          className="help-class"  
-        >
-          <Helper />
-        </div>
-      </div>
     </>
   );
 };

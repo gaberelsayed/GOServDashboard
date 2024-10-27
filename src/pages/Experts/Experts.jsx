@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import Helper from "../../components/Helper";
-import HeaderComponent from "../Products/component/HeaderComponent";
+import HeaderComponent from "./Component/HeaderComponent";
 import ImgSwiper from "./Component/Swiper";
 import { FiBriefcase } from "react-icons/fi";
 import { BsFileEarmarkSpreadsheet } from "react-icons/bs";
@@ -22,7 +22,7 @@ function Experts({ darkMode, setDarkMode }) {
     >
       <Sidebar />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Helper />
+      {/* <Helper /> */}
       <main
         style={{
           marginTop: "90px",
@@ -32,6 +32,7 @@ function Experts({ darkMode, setDarkMode }) {
         }}
         className="w-full overflow-x-hidden mb-4"
       >
+        <HeaderComponent/>
         <div className="Experts ms-6 my-10">
           <div className="h-6 w-full">
             <ImgSwiper />

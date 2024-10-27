@@ -21,7 +21,7 @@ function Reports({ darkMode, setDarkMode }) {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "75px",
+          marginTop: "70px",
           height: "100%",
           width: "calc(100% - 260px)",
           minHeight: "100vh",

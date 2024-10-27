@@ -2,7 +2,7 @@ import React from "react";
 import Helper from "../../components/Helper";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import HeaderComponent from "../Products/component/HeaderComponent";
+import HeaderComponent from "./Component/HeaderComponent";
 import ActiveSubscriptions from "./Component/ActiveSubscriptions";
 import BillingSettings from "./Component/BillingSettings";
 import Types from "./Component/Types";
@@ -22,7 +22,7 @@ export default function Wallet({ darkMode, setDarkMode }) {
           className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
           style={{
             flexGrow: 2,
-            marginTop: "116px",
+            marginTop: "80px",
             // padding: "0 40px 60px",
             height: "100%",
             width: "calc(100% - 260px)",
@@ -33,8 +33,8 @@ export default function Wallet({ darkMode, setDarkMode }) {
             overflowX: "hidden",
           }}
         >
-          <HeaderComponent label=" المحفظة" />
-          <main className="ms-6">
+          <HeaderComponent />
+          <main className="ms-6 mt-3">
             <Vervication />
             <Types />
             <BillingSettings />

@@ -1,5 +1,6 @@
 .RowHeadClass {
-  width: 100%;
+  /* width: 98%; */
+  overflow-x:hidden;
 }
 
 .RowFlex {
@@ -7,29 +8,29 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 10px;
   border-radius: 8px;
 }
 
 .RowFlex .col-1 {
-  width: 5%;
+  width: 5vw;
 }
 
 .RowFlex .col-2 {
-  width: 10%;
+  width: 10vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .RowFlex .col-3 {
-  width: 55%;
+  width: 38vw;
   margin-top: 25px;
 }
 
 .RowFlex .col-4 {
-  width: 25%;
+  width: 18vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -181,4 +182,55 @@
 .product-input::placeholder {
   font-size: 10px;
   color: #888;
+}
+
+@media(max-width:1250px){
+  .RowFlex .col-1 {
+    width: 5vw;
+  }
+  
+  .RowFlex .col-2 {
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .RowFlex .col-3 {
+    width: 40vw;
+    margin-top: 25px;
+  }
+  
+  .RowFlex .col-4 {
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+}
+@media(max-width:1152px){
+  .RowFlex .col-1 {
+    width: 4vw;
+  }
+  
+  .RowFlex .col-2 {
+    width: 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .RowFlex .col-3 {
+    width: 38vw;
+    margin-top: 25px;
+  }
+  
+  .RowFlex .col-4 {
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -20px;
+  }
 }

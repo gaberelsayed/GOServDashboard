@@ -5,10 +5,10 @@ import { FaCheck, FaRegEye, FaStar } from "react-icons/fa";
 import { HiDotsHorizontal, HiOutlineRefresh } from "react-icons/hi";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoBagRemoveOutline, IoSettingsOutline } from "react-icons/io5";
-import Helper from "../../components/Helper";
+// import Helper from "../../components/Helper";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import HeaderComponent from "../Products/component/HeaderComponent";
+import HeaderComponent from "./Component/HeaderComponent";
 import ThemeSwiper from "./Component/Swiper";
 
 export default function Themes({ darkMode, setDarkMode }) {
@@ -26,12 +26,12 @@ export default function Themes({ darkMode, setDarkMode }) {
       >
         <Sidebar />
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Helper />
+        {/* <Helper /> */}
         <main
           className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-4 lg:px-10 pb-[60px]"
           style={{
             flexGrow: 2,
-            marginTop: "116px",
+            marginTop: "80px",
             // padding: "0 40px 60px",
             height: "100%",
             width: "calc(100% - 260px)",
@@ -41,6 +41,7 @@ export default function Themes({ darkMode, setDarkMode }) {
             justifyContent: "space-around",
           }}
         >
+          <HeaderComponent />
           <div className="border rounded-md overflow-hidden gap-2 mb-10 bg-blue-300 flex flow-row items-center ">
             <div className="bg-blue-400 p-3">
               <CiWarning className="text-xl" />
@@ -55,7 +56,6 @@ export default function Themes({ darkMode, setDarkMode }) {
               </span>
             </p>
           </div>
-          <HeaderComponent label=" تصميم المتجر " />
           <div className="mx-2 w-full">
             <h1 className="text-3xl my-4">صمّمت لتبهر عملائك </h1>
             <p>نمو مبيعاتك يبدأ بتجربة تسوق سهلة وفريدة</p>

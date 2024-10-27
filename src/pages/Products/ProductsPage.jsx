@@ -110,7 +110,7 @@ const ProductsPage = (props) => {
         className="w-full h-full lg:w-[calc(100%-260px)] pt-0 px-0 lg:px-10 pb-[60px]"
         style={{
           flexGrow: 2,
-          marginTop: "90px",
+          marginTop: "80px",
           marginRight: "250px",
           height: "100%",
           width: "calc(100% - 260px)",
@@ -120,8 +120,8 @@ const ProductsPage = (props) => {
           justifyContent: "space-around",
         }}
       >
-        <div className="headerComponent">
-          <HeaderComponent />
+        <div className="headerComponent" style={{width:"98%"}}>
+          <HeaderComponent/>
           <ProductHead
             showProductList={showProductList}
             hideProductList={hideProductList}

@@ -19,7 +19,8 @@ import NotFound from "./pages/NotFound/NotFound";
 import Themes from "./pages/Themes/Themes";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import Notifications from "./pages/Notifications/Notifications";
-
+import Feedback from "./pages/Feedback/Feedback";
+import Marketing from "./pages/Marketing/Marketing";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -97,6 +98,14 @@ function App() {
         <Route
          path="/notifications"
          element={<Notifications darkMode={darkMode} setDarkMode={setDarkMode} />}
+       />
+        <Route
+         path="/feedback"
+         element={<Feedback darkMode={darkMode} setDarkMode={setDarkMode} />}
+       />
+         <Route
+         path="/marketing"
+         element={<Marketing darkMode={darkMode} setDarkMode={setDarkMode} />}
        />
         <Route
           path="*"

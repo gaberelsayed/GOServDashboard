@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import "../../ProductCard.css";
-import { MdPhoto } from "react-icons/md";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import { Modal, Button, Form, Row, Col, Dropdown } from "react-bootstrap";
+import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { MdDelete } from "react-icons/md";
-import { FaTrash, FaUpload } from "react-icons/fa";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../../ProductsRow.css";
 
@@ -21,10 +16,57 @@ const OptionsModal = ({ isColumn }) => {
     setOptions([...options, { color: "", language: "AR" }]);
   };
 
+  const [tempColor, setTempColor] = useState("");
+  const [quantities, setQuantities] = useState([
+    { color: "الأبيض", available: 9 },
+    { color: "الأسود", available: 6 },
+    { color: "الوردي", available: 5 },
+    { color: "الأزرق", available: 6 },
+  ]);
+
   const handleOptionChange = (index, field, value) => {
     const newOptions = [...options];
     newOptions[index][field] = value;
     setOptions(newOptions);
+
+    const newQuantities = [...quantities];
+
+    if (field === "color") {
+      const colorExists = newQuantities.some((item) => item.color === value);
+
+      if (colorExists) {
+        setQuantities(
+          newQuantities.map((item) =>
+            item.color === value ? { ...item, available: 0 } : item
+          )
+        );
+      } else {
+        setQuantities([...newQuantities, { color: value, available: 0 }]);
+      }
+    }
+  };
+
+  const [expandedItem, setExpandedItem] = useState(null);
+  const handleItemToggle = (color) => {
+    setExpandedItem((prev) => (prev === color ? null : color));
+  };
+
+  const incrementQuantity = (color) => {
+    setQuantities((prevQuantities) =>
+      prevQuantities.map((item) =>
+        item.color === color ? { ...item, available: item.available + 1 } : item
+      )
+    );
+  };
+
+  const decrementQuantity = (color) => {
+    setQuantities((prevQuantities) =>
+      prevQuantities.map((item) =>
+        item.color === color && item.available > 0
+          ? { ...item, available: item.available - 1 }
+          : item
+      )
+    );
   };
 
   const [showList, setShowList] = useState(false);
@@ -50,26 +92,10 @@ const OptionsModal = ({ isColumn }) => {
   const removeOptionHeaderList = () => {
     setShowDeleteButton(false);
   };
-  const [quantities, setQuantities] = useState([
-    { color: "الأبيض", available: 9 },
-    { color: "الأسود", available: 6 },
-    { color: "الوردي", available: 5 },
-    { color: "الأزرق", available: 6 },
-  ]);
 
   const [unlimited, setUnlimited] = useState(false);
   const [showTotal, setShowTotal] = useState(false);
 
-  const [expandedItem, setExpandedItem] = useState(null);
-  const handleItemToggle = (item) => {
-    setExpandedItem((prev) => (prev === item ? null : item));
-  };
-
-  const [quantity, setQuantity] = useState(9);
-
-  const handleQuantityChange = (change) => {
-    setQuantity((prevQuantity) => Math.max(prevQuantity + change, 1));
-  };
   return (
     <>
       {isColumn ? (
@@ -102,7 +128,6 @@ const OptionsModal = ({ isColumn }) => {
           </p>
         </div>
       )}
-
       <Modal
         show={showOptionsModal}
         onHide={handleOptionsModalClose}
@@ -160,7 +185,10 @@ const OptionsModal = ({ isColumn }) => {
           </div>
           {isToggleOn && (
             <div>
-              <div className="option-list" style={{backgroundColor:"rgba(0,0,0,3%)"}}>
+              <div
+                className="option-list"
+                style={{ backgroundColor: "rgba(0,0,0,3%)" }}
+              >
                 <div className="option-container toggleheader-section">
                   <div className="right-toggleHeader">
                     <i
@@ -181,62 +209,84 @@ const OptionsModal = ({ isColumn }) => {
                       <option value="EN">EN</option>
                     </select>
                   </div>
-                  <div className="left-toggleHeader" style={{position:"relative" }}>
-                    <div className="iconSelectclass" style={{  border:"1px solid #ddd",backgroundColor:"#ffff"}}>
-                    <i className="sicon-file-partial" style={{position:"absolute",top:20,right:30,color:"#aaa"}}></i>
-                    <select className="option-select" style={{ border: "none"}}>
-                      <option>نص</option>
-                      <option>اللون</option>
-                      <option>الصورة</option>
-                    </select>
+                  <div
+                    className="left-toggleHeader"
+                    style={{ position: "relative" }}
+                  >
+                    <div
+                      className="iconSelectclass"
+                      style={{
+                        border: "1px solid #ddd",
+                        backgroundColor: "#ffff",
+                      }}
+                    >
+                      <i
+                        className="sicon-file-partial"
+                        style={{
+                          position: "absolute",
+                          top: 20,
+                          right: 30,
+                          color: "#aaa",
+                        }}
+                      ></i>
+                      <select
+                        className="option-select"
+                        style={{ border: "none" }}
+                      >
+                        <option>نص</option>
+                        <option>اللون</option>
+                        <option>الصورة</option>
+                      </select>
                     </div>
-              
+
                     {showDeleteButton && (
                       <button
                         onClick={removeOptionHeaderList}
                         className="delete-button-list"
                       >
-                      <i className="icon sicon-trash-2" ></i>   
+                        <i className="icon sicon-trash-2"></i>
                       </button>
                     )}
                   </div>
                 </div>
                 {options.map((option, index) => (
-                  <div key={index} style={{display:"flex"}}>
-                  <div className="option-container-body">
-                    <div  className="option-input-body">
-                    <i
-                      className="sicon-type-square"
-                      style={{ color: "#aaa", paddingRight: "7px" }}
-                    ></i>
-                      <input
-                       type="text"
-                       placeholder="القيمة"
-                       value={option.color}
-                       onChange={(e) =>
-                         handleOptionChange(index, "color", e.target.value)
-                       }
-                     />
-                   </div>
-                    
-                    <select
-                      className="option-select-body"
-                      value={option.language}
-                      onChange={(e) =>
-                        handleOptionChange(index, "language", e.target.value)
-                      }
-                      style={{border:"none"}}
-                    >
-                      <option value="AR">AR</option>
-                      <option value="EN">EN</option>
-                    </select>
-                
-                  </div>
-                      <button
+                  <div key={index} style={{ display: "flex" }}>
+                    <div className="option-container-body">
+                      <div className="option-input-body">
+                        <i
+                          className="sicon-type-square"
+                          style={{ color: "#aaa", paddingRight: "7px" }}
+                        ></i>
+                        <input
+                          type="text"
+                          placeholder="القيمة"
+                          onChange={(e) => setTempColor(e.target.value)}
+                          onBlur={(e) => {
+                            handleOptionChange(index, "color", e.target.value);
+                          }}
+                          onFocus={() => setTempColor(option.color)}
+                        />
+                      </div>
+
+                      <select
+                        className="option-select-body"
+                        style={{ border: "none" }}
+                      >
+                        <option value="AR">AR</option>
+                        <option value="EN">EN</option>
+                      </select>
+                    </div>
+                    <button
                       className="delete-button-body"
-                      onClick={() =>
-                        setOptions(options.filter((_, i) => i !== index))
-                      }
+                      onClick={() => {
+                        const colorToRemove = options[index].color;
+                        setOptions(options.filter((_, i) => i !== index));
+                        setQuantities(
+                          quantities.filter(
+                            (item) => item.color !== colorToRemove
+                          )
+                        );
+                      }}
                     >
                       <i className="icon sicon-trash-2"></i>
                     </button>
@@ -247,86 +297,122 @@ const OptionsModal = ({ isColumn }) => {
                 </button>
               </div>
               {showList && (
-                <div className="option-list" style={{backgroundColor:"rgba(0,0,0,3%)"}}>
+                <div
+                  className="option-list"
+                  style={{ backgroundColor: "rgba(0,0,0,3%)" }}
+                >
                   <div className="option-container toggleheader-section">
-                  <div className="right-toggleHeader">
-                    <i
-                      className="sicon-type-square"
-                      style={{ color: "#aaa", paddingRight: "7px" }}
-                    ></i>
-                    <input
-                      type="text"
-                      className="option-input"
-                      placeholder="اللون"
-                      style={{ marginRight: "0px", border: "none" }}
-                    />
-                    <select
-                      className="option-select"
-                      style={{ border: "none" }}
-                    >
-                      <option value="AR">AR</option>
-                      <option value="EN">EN</option>
-                    </select>
-                  </div>
-                  <div className="left-toggleHeader" style={{position:"relative" }}>
-                    <div className="iconSelectclass" style={{  border:"1px solid #ddd",backgroundColor:"#ffff"}}>
-                    <i className="sicon-file-partial" style={{position:"absolute",top:20,right:30,color:"#aaa"}}></i>
-                    <select className="option-select" style={{ border: "none"}}>
-                      <option>نص</option>
-                      <option>اللون</option>
-                      <option>الصورة</option>
-                    </select>
+                    <div className="right-toggleHeader">
+                      <i
+                        className="sicon-type-square"
+                        style={{ color: "#aaa", paddingRight: "7px" }}
+                      ></i>
+                      <input
+                        type="text"
+                        className="option-input"
+                        placeholder="اللون"
+                        style={{ marginRight: "0px", border: "none" }}
+                      />
+                      <select
+                        className="option-select"
+                        style={{ border: "none" }}
+                      >
+                        <option value="AR">AR</option>
+                        <option value="EN">EN</option>
+                      </select>
                     </div>
+                    <div
+                      className="left-toggleHeader"
+                      style={{ position: "relative" }}
+                    >
+                      <div
+                        className="iconSelectclass"
+                        style={{
+                          border: "1px solid #ddd",
+                          backgroundColor: "#ffff",
+                        }}
+                      >
+                        <i
+                          className="sicon-file-partial"
+                          style={{
+                            position: "absolute",
+                            top: 20,
+                            right: 30,
+                            color: "#aaa",
+                          }}
+                        ></i>
+                        <select
+                          className="option-select"
+                          style={{ border: "none" }}
+                        >
+                          <option>نص</option>
+                          <option>اللون</option>
+                          <option>الصورة</option>
+                        </select>
+                      </div>
                       {showList && (
                         <button
                           onClick={removeOptionList}
                           className="delete-button-list"
                         >
-                          <i className="icon sicon-trash-2" ></i>       
-                       </button>
+                          <i className="icon sicon-trash-2"></i>
+                        </button>
                       )}
                     </div>
                   </div>
                   {options.map((option, index) => (
-                      <div key={index} style={{display:"flex"}}>
+                    <div key={index} style={{ display: "flex" }}>
                       <div className="option-container-body">
-                        <div  className="option-input-body">
-                        <i
-                          className="sicon-type-square"
-                          style={{ color: "#aaa", paddingRight: "7px" }}
-                        ></i>
+                        <div className="option-input-body">
+                          <i
+                            className="sicon-type-square"
+                            style={{ color: "#aaa", paddingRight: "7px" }}
+                          ></i>
                           <input
-                           type="text"
-                           placeholder="القيمة"
-                           value={option.color}
-                           onChange={(e) =>
-                             handleOptionChange(index, "color", e.target.value)
-                           }
-                         />
-                       </div>
-                        
+                            type="text"
+                            placeholder="القيمة"
+                            value={option.color}
+                            onChange={(e) =>
+                              handleOptionChange(index, "color", e.target.value)
+                            }
+                          />
+                        </div>
+
                         <select
                           className="option-select-body"
-                          value={option.language}
-                          onChange={(e) =>
-                            handleOptionChange(index, "language", e.target.value)
-                          }
-                          style={{border:"none"}}
+                          // value={option.language}
+                          // onChange={(e) =>
+                          //   handleOptionChange(
+                          //     index,
+                          //     "language",
+                          //     e.target.value
+                          //   )
+                          // }
+                          style={{ border: "none" }}
                         >
                           <option value="AR">AR</option>
                           <option value="EN">EN</option>
                         </select>
-                    
                       </div>
-                          <button
-                          className="delete-button-body"
-                          onClick={() =>
-                            setOptions(options.filter((_, i) => i !== index))
-                          }
-                        >
-                          <i className="icon sicon-trash-2"></i>
-                        </button>
-                      </div>
+                      <button
+                        className="delete-button-body"
+                        onClick={() => {
+                          const colorToRemove = options[index].color;
+
+                          // Update the options array to remove the selected option
+                          setOptions(options.filter((_, i) => i !== index));
+
+                          // Update the quantities array to remove the corresponding color
+                          setQuantities(
+                            quantities.filter(
+                              (item) => item.color !== colorToRemove
+                            )
+                          );
+                        }}
+                      >
+                        <i className="icon sicon-trash-2"></i>
+                      </button>
+                    </div>
                   ))}
 
                   <button onClick={addNewOption} className="add-option-button">
@@ -334,6 +420,7 @@ const OptionsModal = ({ isColumn }) => {
                   </button>
                 </div>
               )}
+
               <button onClick={addNewOption} className="addNewOption">
                 <span className="plus-icon">+</span> إضافة خيار جديد
               </button>
@@ -365,7 +452,7 @@ const OptionsModal = ({ isColumn }) => {
                   <div key={index}>
                     <div
                       className="d-flex justify-content-between mb-2"
-                      onClick={() => handleItemToggle(item)}
+                      onClick={() => handleItemToggle(item.color)}
                       style={{ cursor: "pointer" }}
                     >
                       <div className="flex-grow-1 bg-light p-2 rounded">
@@ -390,7 +477,7 @@ const OptionsModal = ({ isColumn }) => {
                         متوفر عدد {item.available}
                       </div>
                     </div>
-                    {expandedItem === item && (
+                    {expandedItem === item.color && (
                       <div className="additional-content p-3 rounded mt-2">
                         <div className="product-form">
                           <div className="row">
@@ -496,22 +583,37 @@ const OptionsModal = ({ isColumn }) => {
                             <div className="col">
                               <input
                                 type="text"
-                                className="form-control"
                                 placeholder="باركود"
+                                style={{
+                                  outline: "none",
+                                  border: "none",
+                                  backgroundColor: "none",
+                                  width:"120px",
+                                }}
                               />
                             </div>
                             <div className="col">
                               <input
                                 type="text"
-                                className="form-control"
                                 placeholder="SKU"
+                                style={{
+                                  outline: "none",
+                                  border: "none",
+                                  backgroundColor: "none",
+                                  width:"120px",
+                                }}
                               />
                             </div>
                             <div className="col">
                               <input
                                 type="text"
-                                className="form-control"
                                 placeholder="اقل كمية للتنبية"
+                                style={{
+                                  outline: "none",
+                                  border: "none",
+                                  backgroundColor: "none",
+                                  width:"200px",
+                                }}
                               />
                             </div>
                           </div>
@@ -531,14 +633,20 @@ const OptionsModal = ({ isColumn }) => {
                             <div className="quantity-control">
                               <button
                                 className="btn btn-light"
-                                onClick={() => handleQuantityChange(-1)}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  decrementQuantity(item.color);
+                                }}
                               >
                                 -
                               </button>
-                              <span>{quantity}</span>
+                              <span>{item.available}</span>
                               <button
                                 className="btn btn-light"
-                                onClick={() => handleQuantityChange(1)}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  incrementQuantity(item.color);
+                                }}
                               >
                                 +
                               </button>
@@ -556,7 +664,7 @@ const OptionsModal = ({ isColumn }) => {
         <Modal.Footer>
           <Button
             variant="secondary"
-            onClick={handleOptionsModalClose}
+            // onClick={handleOptionsModalClose}
             className="save-btn-options"
           >
             حفظ

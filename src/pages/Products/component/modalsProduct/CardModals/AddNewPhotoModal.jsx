@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import "../../ProductCard.css";
 import "../../ProductsRow.css";
-import { MdPhoto } from "react-icons/md";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import { Modal, Button, Form, Row, Col, Dropdown } from "react-bootstrap";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { MdDelete } from "react-icons/md";
-import { FaTrash, FaUpload } from "react-icons/fa";
-import ReactQuill from "react-quill";
+import { Modal, Button } from "react-bootstrap";
 import "react-quill/dist/quill.snow.css";
 
-const AddNewPhotoModal = ({ isColumn }) => {
+const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
   const [showModal, setShowModal] = useState(false);
   const [showOptionsModal, setShowOptionsModal] = useState(false);
   const [isToggleOn, setIsToggleOn] = useState(false);
@@ -25,14 +18,31 @@ const AddNewPhotoModal = ({ isColumn }) => {
     handleFiles(files);
   };
 
+  // const [uploadedImage, setUploadedImage] = useState(null);
+  // const handleFiles = (files) => {
+  //   const validFiles = files.filter((file) => file.type.startsWith("image/"));
+  //   if (validFiles.length > 0) {
+  //     const file = validFiles[0];
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setUploadedImage(reader.result);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
   const [uploadedImage, setUploadedImage] = useState(null);
+
   const handleFiles = (files) => {
     const validFiles = files.filter((file) => file.type.startsWith("image/"));
     if (validFiles.length > 0) {
       const file = validFiles[0];
       const reader = new FileReader();
       reader.onloadend = () => {
-        setUploadedImage(reader.result);
+        const imageUrl = reader.result;
+        setUploadedImage(imageUrl);
+        if (onImageUpload) {
+          onImageUpload(imageUrl); 
+        }
       };
       reader.readAsDataURL(file);
     }
@@ -104,12 +114,6 @@ const AddNewPhotoModal = ({ isColumn }) => {
               </div>
             </label>
           </div>
-          {uploadedImage && (
-            <div className="uploaded-image">
-              <img src={uploadedImage} alt="Uploaded" />
-            </div>
-          )}
-
           <div className="input-container">
             <button className="input-button">
               <i className="icon-class">اضافة</i>
@@ -121,6 +125,11 @@ const AddNewPhotoModal = ({ isColumn }) => {
             />
             <i className="sicon-media-player" style={{color:"#aaa", marginRight:"8px"}}></i>
           </div>
+          {uploadedImage && (
+            <div className="uploaded-image">
+              <img src={uploadedImage} alt="Uploaded" />
+            </div>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button

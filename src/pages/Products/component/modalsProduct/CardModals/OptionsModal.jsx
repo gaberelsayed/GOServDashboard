@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "../../ProductCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
@@ -6,7 +6,10 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import "react-quill/dist/quill.snow.css";
 import "../../ProductsRow.css";
 
-const OptionsModal = ({ isColumn }) => {
+const defaultQuantities = [
+];
+
+const OptionsModal = ({ isColumn ,quantities, onColorsChange}) => {
   const [showOptionsModal, setShowOptionsModal] = useState(false);
   const [isToggleOn, setIsToggleOn] = useState(false);
   const handleOptionsModalClose = () => setShowOptionsModal(false);
@@ -17,31 +20,36 @@ const OptionsModal = ({ isColumn }) => {
   };
 
   const [tempColor, setTempColor] = useState("");
-  const [quantities, setQuantities] = useState([
-    { color: "الأبيض", available: 9 },
-    { color: "الأسود", available: 6 },
-    { color: "الوردي", available: 5 },
-    { color: "الأزرق", available: 6 },
-  ]);
+  const [localQuantities, setLocalQuantities] = useState(
+    quantities ? quantities : defaultQuantities
+  );
+
+  useEffect(() => {
+    if (quantities) {
+      setLocalQuantities(quantities);
+    } else {
+      setLocalQuantities(defaultQuantities);
+    }
+  }, [quantities]);
 
   const handleOptionChange = (index, field, value) => {
     const newOptions = [...options];
     newOptions[index][field] = value;
     setOptions(newOptions);
 
-    const newQuantities = [...quantities];
+    const newQuantities = [...localQuantities];
 
     if (field === "color") {
       const colorExists = newQuantities.some((item) => item.color === value);
 
       if (colorExists) {
-        setQuantities(
+        setLocalQuantities(
           newQuantities.map((item) =>
             item.color === value ? { ...item, available: 0 } : item
           )
         );
       } else {
-        setQuantities([...newQuantities, { color: value, available: 0 }]);
+          setLocalQuantities([...newQuantities, { color: value, available: 0 }]);
       }
     }
   };
@@ -52,7 +60,7 @@ const OptionsModal = ({ isColumn }) => {
   };
 
   const incrementQuantity = (color) => {
-    setQuantities((prevQuantities) =>
+    setLocalQuantities((prevQuantities) =>
       prevQuantities.map((item) =>
         item.color === color ? { ...item, available: item.available + 1 } : item
       )
@@ -60,7 +68,7 @@ const OptionsModal = ({ isColumn }) => {
   };
 
   const decrementQuantity = (color) => {
-    setQuantities((prevQuantities) =>
+    setLocalQuantities((prevQuantities) =>
       prevQuantities.map((item) =>
         item.color === color && item.available > 0
           ? { ...item, available: item.available - 1 }
@@ -281,8 +289,8 @@ const OptionsModal = ({ isColumn }) => {
                       onClick={() => {
                         const colorToRemove = options[index].color;
                         setOptions(options.filter((_, i) => i !== index));
-                        setQuantities(
-                          quantities.filter(
+                        setLocalQuantities(
+                          localQuantities.filter(
                             (item) => item.color !== colorToRemove
                           )
                         );
@@ -380,14 +388,6 @@ const OptionsModal = ({ isColumn }) => {
 
                         <select
                           className="option-select-body"
-                          // value={option.language}
-                          // onChange={(e) =>
-                          //   handleOptionChange(
-                          //     index,
-                          //     "language",
-                          //     e.target.value
-                          //   )
-                          // }
                           style={{ border: "none" }}
                         >
                           <option value="AR">AR</option>
@@ -398,13 +398,9 @@ const OptionsModal = ({ isColumn }) => {
                         className="delete-button-body"
                         onClick={() => {
                           const colorToRemove = options[index].color;
-
-                          // Update the options array to remove the selected option
                           setOptions(options.filter((_, i) => i !== index));
-
-                          // Update the quantities array to remove the corresponding color
-                          setQuantities(
-                            quantities.filter(
+                          setLocalQuantities(
+                            localQuantities.filter(
                               (item) => item.color !== colorToRemove
                             )
                           );
@@ -448,7 +444,7 @@ const OptionsModal = ({ isColumn }) => {
                     </Col>
                   </Row>
                 </Form.Group>
-                {quantities.map((item, index) => (
+                {localQuantities.map((item, index) => (
                   <div key={index}>
                     <div
                       className="d-flex justify-content-between mb-2"
@@ -664,7 +660,6 @@ const OptionsModal = ({ isColumn }) => {
         <Modal.Footer>
           <Button
             variant="secondary"
-            // onClick={handleOptionsModalClose}
             className="save-btn-options"
           >
             حفظ

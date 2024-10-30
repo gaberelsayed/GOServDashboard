@@ -817,7 +817,7 @@ button:focus {
 }
 
 .CategoryModal .modal-body input[type="text"] {
-  padding: 10px;
+  /* padding: 10px; */
   border: none;
   border-radius: 4px;
   margin-bottom: 15px;
@@ -877,11 +877,12 @@ button:focus {
 }
 
 .field-category .InputCategoryClass {
-  width: 85%;
+  width: 88%;
 }
 
 .field-category .InputCategoryClass input {
   width: 100%;
+  margin-top:3px;
 }
 
 .field-category .selectCategoryClass {

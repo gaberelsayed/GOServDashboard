@@ -1,42 +1,61 @@
 import React, { useState } from "react";
 import "../../ProductCard.css";
 import "../../ProductsRow.css";
-import { MdPhoto } from "react-icons/md";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import { Modal, Button, Form, Row, Col, Dropdown } from "react-bootstrap";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { MdDelete } from "react-icons/md";
-import { FaTrash, FaUpload } from "react-icons/fa";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { Modal, Button } from "react-bootstrap";
+import axios from "axios";
 
 const CategoryModal = ({ isColumn }) => {
-  const [productDetails, setProductDetails] = useState({
-    language: "AR",
-    price: 150,
-    quantity: 26,
-    description: "هدايا حسب الحدث",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProductDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
-  };
-
   const [showCategoryModal, setShowCategoryModal] = useState(false);
+  const [isMainCategory, setIsMainCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [language, setLanguage] = useState("AR");
+  const [categoryNameAR, setCategoryNameAR] = useState(""); 
+  const [categoryNameEN, setCategoryNameEN] = useState(""); 
 
   const handleCategoryModalClose = () => setShowCategoryModal(false);
   const handleCategoryModalShow = () => setShowCategoryModal(true);
 
-  const [isMainCategory, setIsMainCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("");
-
   const toggleMainCategory = () => {
     setIsMainCategory((prev) => !prev);
+  };
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (language === "AR") {
+      setCategoryNameAR(value);
+    } else {
+      setCategoryNameEN(value);
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+     const data = {
+      name: {
+        ar: categoryNameAR,
+        en: categoryNameEN,
+      },
+      photo:""
+    };
+
+    try {
+      const response = await axios.post(
+        "https://goservback.alyoumsa.com/api/dashboard/categories",
+        data
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        console.log("Category added successfully", response.data);
+        alert("Category added successfully");
+        setShowCategoryModal(false);
+      }
+    } catch (error) {
+      console.error("Error adding category", error);
+    }
   };
 
   return (
@@ -78,13 +97,25 @@ const CategoryModal = ({ isColumn }) => {
               <br />
               <div className="field-category">
                 <div className="InputCategoryClass">
-                  <input type="text" placeholder="ادخل اسم التصنيف" required />
+                  <input
+                    type="text"
+                    placeholder={
+                      language === "AR" ? "ادخل اسم التصنيف" : "Enter the category name"
+                    }
+                    value={language === "AR" ? categoryNameAR : categoryNameEN}
+                    onChange={handleInputChange}
+                    required
+                    style={{
+                      direction: language === "AR" ? "rtl" : "ltr",
+                      textAlign: language === "AR" ? "right" : "left",
+                    }}
+                  />
                 </div>
                 <div className="selectCategoryClass">
                   <select
                     name="language"
-                    value={productDetails.language}
-                    onChange={handleChange}
+                    value={language}
+                    onChange={handleLanguageChange}
                   >
                     <option value="AR">AR</option>
                     <option value="EN">EN</option>
@@ -126,7 +157,7 @@ const CategoryModal = ({ isColumn }) => {
           <Button
             variant="primary"
             type="submit"
-            onClick={handleCategoryModalClose}
+            onClick={handleSubmit}
           >
             إضافة التصنيف
           </Button>

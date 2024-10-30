@@ -61,7 +61,7 @@ const Select = styled.select`
   border: 1px solid #ccc;
 `;
 
-const ProductsRow = ({ imageUrl, price, Prductname, placeholder, newprd , onDelete}) => {
+const ProductsRow = ({ imageUrl, price, Prductname, placeholder, newprd , onDelete ,onImageUpload }) => {
   function ToggleCheckButton() {
     const [isChecked, setIsChecked] = useState(false);
 
@@ -125,7 +125,7 @@ const ProductsRow = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
         </Col>
         <Col style={{ position: "relative" }} className="col-2">
           <img src={imageUrl} alt="" className="CardImage" />
-          <AddNewPhotoModal  isColumn={false}/>
+          <AddNewPhotoModal  isColumn={false} onImageUpload={onImageUpload}/>
         </Col>
         <Col className="col-3">
           <div className="product-info" style={{ width: "100%" }}>

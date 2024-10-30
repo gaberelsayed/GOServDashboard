@@ -1,20 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
-import { MdPhoto } from "react-icons/md";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import { Modal, Button, Form, Row, Col, Dropdown } from "react-bootstrap";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { MdDelete } from "react-icons/md";
-import { FaTrash, FaUpload } from "react-icons/fa";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import AddNewPhotoModal from "./modalsProduct/CardModals/AddNewPhotoModal";
 import OptionsModal from "./modalsProduct/CardModals/OptionsModal";
 import CategoryModal from "./modalsProduct/CardModals/CategoryModal";
 import DetailsModal from "./modalsProduct/CardModals/DetailsModal";
 import ProductNotificationModal from "./modalsProduct/CardModals/ProductNotificationModal";
-
+import axios from "axios";
 function ToggleCheckButton() {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -32,34 +26,105 @@ function ToggleCheckButton() {
   );
 }
 
-const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDelete}) => {
-  const [productDetails, setProductDetails] = useState({
-    language: "AR",
-    price: 150,
-    quantity: 26,
-    description: "هدايا حسب الحدث",
-  });
+const ProductCard = ({
+  addNewProduct,
+  imageUrl,
+  price,
+  Prductname,
+  placeholder,
+  CategoryName,
+  newprd,
+  onDelete,
+  onImageUpload,
+  quantities,
+}) => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(
+          "https://goservback.alyoumsa.com/api/dashboard/categories"
+        );
+        setCategories(response.data.data);
+        console.log(response.data.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProductDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
-  };
+    fetchCategories();
+  }, []);
 
   const [isRed, setIsRed] = useState(false);
-
   const handleColorClick = () => {
     setIsRed((prev) => !prev);
   };
+
+
+  const [language, setLanguage] = useState("AR");
+  const [newnameAR, setNewNameAR] = useState("");
+  const [newnameEn, setNewNameEN] = useState("");
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (language === "AR") {
+      setNewNameAR(value);
+    } else {
+      setNewNameEN(value);
+    }
+  };
+  const [colors, setColors] = useState([
+    {
+      color: "",
+      sizes: [
+        {
+          size_id: 1,
+          quantity: "",
+          price: "",
+          cost: ""
+        }
+      ]
+    }
+  ]);
+
+  const handleColorsChange = (newColors) => {
+    setColors(newColors);
+  };
+  const handleProductSubmit = () => {
+    const newProductData = {
+      Photo: [imageUrl],
+      name: {
+        en: newnameEn,
+        ar: newnameAR,
+      },
+      description: {
+        en: "description",
+        ar: "وصف",
+      },
+      weight:"50",
+      details: {
+        en: "details",
+        ar: "تفاصيل",
+      },
+      colors,
+    };
+    addNewProduct(newProductData);
+  };
+
   return (
     <div className="product-container">
       <div className="product-card">
         <div className="product-image">
           <img src={imageUrl} alt="" />
           {newprd ? (
-            <button className="upload-icon deleteCardButton"  onClick={onDelete}>X</button>
+            <button className="upload-icon deleteCardButton" onClick={onDelete}>
+              X
+            </button>
           ) : (
             <button className="upload-icon">
               <ToggleCheckButton />
@@ -76,7 +141,7 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
               </div>
             </div>
             <div className="left">
-              <AddNewPhotoModal isColumn={true} />
+              <AddNewPhotoModal isColumn={true} onImageUpload={onImageUpload} />
             </div>
           </div>
         </div>
@@ -88,20 +153,37 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
                   className="sicon-packed-box"
                   style={{ marginRight: "8px" }}
                 ></i>
-
-                <input
-                  type="text"
-                  placeholder={placeholder}
-                  Value={Prductname}
-                  className="product-input"
-                />
+                {newprd ? (
+                  <input
+                    type="text"
+                    placeholder={
+                      language === "AR"
+                        ? "اسم المنتج"
+                        : "Product Name"
+                    }
+                    value={language === "AR" ? newnameAR : newnameEn}
+                    onChange={handleInputChange}
+                    required
+                    style={{
+                      direction: language === "AR" ? "rtl" : "ltr",
+                      textAlign: language === "AR" ? "right" : "left",
+                    }}
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    placeholder={placeholder}
+                    Value={Prductname}
+                    className="product-input"
+                  />
+                )}
               </div>
             </div>
             <div className="select-wrapper">
               <select
                 name="language"
-                value={productDetails.language}
-                onChange={handleChange}
+                value={language}
+                onChange={handleLanguageChange}
                 className="language-select"
               >
                 <option value="AR">AR</option>
@@ -115,9 +197,8 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
               <input
                 type="text"
                 name="price"
-                value={price}
+                Value={price}
                 placeholder="السعر"
-                onChange={handleChange}
               />
             </div>
             <div className="labelPriceClass">
@@ -130,9 +211,6 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
                 كمية غير محدودة
               </p>
             </div>
-            {/* <div className="icon-1">
-              <i className="sicon-bell-time"></i>
-            </div> */}
             <ProductNotificationModal isColumn={true} />
 
             <div className="icon-2" style={{ position: "relative" }}>
@@ -153,18 +231,24 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
                 </svg>
               </div>
             </div>
-            <OptionsModal isColumn={true} />
+            <OptionsModal isColumn={true} quantity={quantities}  onColorsChange={handleColorsChange} />
           </div>
           <div className="field">
             <div className="selectClassificationClass">
-              <select>
-                <option value="">اختر تصنيف المنتج</option>
-                <option value="">هدايا موسمية (مخفي)</option>
-                <option value="">الشتاء (مخفي)</option>
-                <option value="">الصيف (مخفي)</option>
-                <option value="">الربيع (مخفي)</option>
-                <option value="">كفر جوال هدية</option>
-              </select>
+              {newprd ? (
+                <select>
+                  <option value="">اختر تصنيف المنتج</option>
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <select>
+                  <option value="">{CategoryName}</option>
+                </select>
+              )}
             </div>
             <CategoryModal isColumn={true} />
           </div>
@@ -180,7 +264,7 @@ const ProductCard = ({ imageUrl, price, Prductname, placeholder, newprd , onDele
               </select>
             </div>
           </div>
-          <button className="save-button">حفظ</button>
+          <button className="save-button" onClick={handleProductSubmit}>حفظ</button>
         </div>
       </div>
     </div>

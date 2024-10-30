@@ -21,16 +21,18 @@ const OptionsModal = ({ isColumn ,quantities, onColorsChange}) => {
 
   const [tempColor, setTempColor] = useState("");
   const [localQuantities, setLocalQuantities] = useState(
-    quantities ? quantities : defaultQuantities
+    Array.isArray(quantities) ? quantities : defaultQuantities
   );
 
   useEffect(() => {
-    if (quantities) {
+    if (Array.isArray(quantities)) {
+      console.log("Using quantities from props:", quantities);
       setLocalQuantities(quantities);
     } else {
+      console.log("Quantities is not an array, using defaultQuantities.");
       setLocalQuantities(defaultQuantities);
     }
-  }, [quantities]);
+  }, [quantities])
 
   const handleOptionChange = (index, field, value) => {
     const newOptions = [...options];

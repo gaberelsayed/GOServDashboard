@@ -48,6 +48,10 @@ const ProductsPage = (props) => {
           ),
         }))
       );
+
+      productQuantities.forEach((item) =>
+        console.log("Color:", item.color, "Available:", item.available)
+      );
       setProducts(fetchedProducts);
       setQuantities(productQuantities);
     })
@@ -114,6 +118,7 @@ const ProductsPage = (props) => {
               onDelete={(index) => deleteProduct(index)}
               onImageUpload={updateProductImage}
               quantities={quantities} 
+              addNewProduct={addNewProduct}
             />
           ) : (
             <ProductListRow

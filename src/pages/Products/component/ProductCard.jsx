@@ -38,7 +38,9 @@ const ProductCard = ({
   onImageUpload,
   quantities,
 }) => {
+
   const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState("");
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -78,25 +80,27 @@ const ProductCard = ({
       setNewNameEN(value);
     }
   };
-  const [colors, setColors] = useState([
-    {
-      color: "",
-      sizes: [
-        {
-          size_id: 1,
-          quantity: "",
-          price: "",
-          cost: ""
-        }
-      ]
-    }
-  ]);
+  // const [colors, setColors] = useState([
+  //   {
+  //     color: "",
+  //     sizes: [
+  //       {
+  //         size_id: 1,
+  //         quantity: "",
+  //         price: "",
+  //         cost: ""
+  //       }
+  //     ]
+  //   }
+  // ]);
 
-  const handleColorsChange = (newColors) => {
-    setColors(newColors);
-  };
+  // const handleColorsChange = (newColors) => {
+  //   setColors(newColors);
+  // };
   const handleProductSubmit = () => {
     const newProductData = {
+      category_id: selectedCategoryId,
+      brand_id:"",
       Photo: [imageUrl],
       name: {
         en: newnameEn,
@@ -111,7 +115,20 @@ const ProductCard = ({
         en: "details",
         ar: "تفاصيل",
       },
-      colors,
+      colors: [
+        {
+          color_id: "2", 
+          photo:[],
+          sizes: [
+            {
+              size_id: 1,
+              quantity: "15", 
+              price: "150", 
+              cost: "100" ,
+            }
+          ]
+        }
+      ]
     };
     addNewProduct(newProductData);
   };
@@ -231,12 +248,15 @@ const ProductCard = ({
                 </svg>
               </div>
             </div>
-            <OptionsModal isColumn={true} quantity={quantities}  onColorsChange={handleColorsChange} />
+            <OptionsModal isColumn={true}  quantities={quantities} />
           </div>
           <div className="field">
             <div className="selectClassificationClass">
               {newprd ? (
-                <select>
+                <select 
+                value={selectedCategoryId}
+                onChange={(e) => setSelectedCategoryId(e.target.value)}
+                >
                   <option value="">اختر تصنيف المنتج</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>

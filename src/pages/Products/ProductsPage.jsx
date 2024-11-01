@@ -36,6 +36,7 @@ const ProductsPage = (props) => {
         id:product.id,
         placeholder: "خدمة حسب الطلب",
         CategoryName:product.category_name,
+        price:product.main_price,
         newprd: false,
       }));
 
@@ -67,17 +68,11 @@ const ProductsPage = (props) => {
       )
     );
   };
-  // const addNewProduct = (newProduct) => {
-  //   setProducts((prevProducts) => [newProduct, ...prevProducts]);
-  // };
-
+  
   const addNewProduct = (newProductData) => {
     setProducts((prevProducts) => [newProductData, ...prevProducts]);
     axios.post("https://goservback.alyoumsa.com/api/dashboard/products", newProductData)
-      .then(response => {
-        setProducts([response.data, ...products]);
-      })
-      .catch(error => console.error("Error adding product:", error.message));
+    .catch(error => console.error("Error adding product:", error.message));
   };
 
   const deleteProduct = (index) => {

@@ -4,10 +4,9 @@ import "../../ProductsRow.css";
 import { Modal, Button } from "react-bootstrap";
 import "react-quill/dist/quill.snow.css";
 
-const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
+const AddNewPhotoModal = ({ isColumn, onImageUpload }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showOptionsModal, setShowOptionsModal] = useState(false);
-  const [isToggleOn, setIsToggleOn] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState([]);
 
   const handleModalClose = () => setShowModal(false);
   const handleModalShow = () => setShowModal(true);
@@ -18,35 +17,40 @@ const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
     handleFiles(files);
   };
 
-  // const [uploadedImage, setUploadedImage] = useState(null);
-  // const handleFiles = (files) => {
-  //   const validFiles = files.filter((file) => file.type.startsWith("image/"));
-  //   if (validFiles.length > 0) {
-  //     const file = validFiles[0];
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setUploadedImage(reader.result);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-  const [uploadedImage, setUploadedImage] = useState(null);
-
   const handleFiles = (files) => {
     const validFiles = files.filter((file) => file.type.startsWith("image/"));
-    if (validFiles.length > 0) {
-      const file = validFiles[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const imageUrl = reader.result;
-        setUploadedImage(imageUrl);
+    const imageUrls = []; 
+
+    const readFilePromises = validFiles.map((file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const imageUrl = reader.result;
+          if (imageUrl) {
+            imageUrls.push(imageUrl); 
+            resolve(); 
+          } else {
+            reject(new Error("File reading failed"));
+          }
+        };
+        reader.onerror = () => reject(new Error("File reading error"));
+        reader.readAsDataURL(file);
+      });
+    });
+
+    Promise.all(readFilePromises)
+      .then(() => {
+        setUploadedImages((prevImages) => [...prevImages, ...imageUrls]);
         if (onImageUpload) {
-          onImageUpload(imageUrl); 
+          onImageUpload(imageUrls);
         }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+        
+        console.log("Uploaded Image URLs:", imageUrls);
+      })
+      .catch((error) => {
+        console.error("Error reading files:", error);
+      });
+  };;
 
   const handleFileInputChange = (e) => {
     const files = Array.from(e.target.files);
@@ -77,7 +81,6 @@ const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
         className="addnewphoto"
       >
         <div className="modal-header">
-        
           <h4>صور وفيديوهات المنتج</h4>
           <Button
             variant="link"
@@ -89,8 +92,8 @@ const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
         </div>
         <Modal.Body className="photoPopup">
           <div className="head-section">
-            <h4 style={{color:"black",marginBottom:"7px"}}>صور المنتج</h4>
-            <p style={{fontSize:"14px"}}>
+            <h4 style={{ color: "black", marginBottom: "7px" }}>صور المنتج</h4>
+            <p style={{ fontSize: "14px" }}>
               لمقاس لا يقل عن (100px ارتفاع * 250px عرض) من نوع ( jpg, jpeg, png
               , gif ) ولا يتجاوز 5 ميجابيت لكل صوره بحد اقصي 10 صور
             </p>
@@ -123,13 +126,15 @@ const AddNewPhotoModal = ({ isColumn , onImageUpload  }) => {
               className="text-input"
               placeholder="أضف تعليقاً أو فيديو من اليوتيوب"
             />
-            <i className="sicon-media-player" style={{color:"#aaa", marginRight:"8px"}}></i>
+            <i className="sicon-media-player" style={{ color: "#aaa", marginRight: "8px" }}></i>
           </div>
-          {uploadedImage && (
-            <div className="uploaded-image">
-              <img src={uploadedImage} alt="Uploaded" />
-            </div>
-          )}
+          <div className="uploaded-images-container d-flex">
+            {uploadedImages.map((image, index) => (
+              <div key={index} className="uploaded-image">
+                <img src={image} alt={`Uploaded ${index + 1}`} />
+              </div>
+            ))}
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button

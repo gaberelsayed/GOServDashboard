@@ -10,14 +10,13 @@ const AddNewProductModal = ({ addNewProduct }) => {
   
 
   const handleAddProduct = (placeholder) => {
-    const newProduct = {
+    const newProductData = {
       imageUrl: "https://cdn.assets.salla.network/prod/admin/cp/assets/images/placeholder.png",
-      price: "",
       Prductname:"",
       placeholder:placeholder,
       newprd:true,
     };
-    addNewProduct(newProduct);
+    addNewProduct( newProductData);
     handleCloseModal();
   };
 

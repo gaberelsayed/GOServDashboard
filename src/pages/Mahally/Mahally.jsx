@@ -10,7 +10,7 @@ const Mahally = (props) => {
     <div
       className={`slidePage flex flex-wrap' ${props.darkMode ? "dark" : ""}`}
       style={{ backgroundColor: props.darkMode ? "#282828" : "transparent" }}
-    >
+    >      
       <Sidebar />
       <Navbar darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
       <main
